@@ -15,20 +15,6 @@
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<script>
-$(function() {
-var menu = $('.menu');
-$('li', menu)
-.mouseover(function(e) {
-$('ul', this).stop().slideDown('fast');
-})
-.mouseout(function(e) {
-$('ul', this).stop().slideUp('fast');
-});
-});
-</script>
-
 </head>
 
 <body>
@@ -37,7 +23,6 @@ $('ul', this).stop().slideUp('fast');
 
 	<!-- Header -->
 	<!--共通-->
-	<!--test-->
 
 	<header class="header trans_300">
 
@@ -55,10 +40,9 @@ $('ul', this).stop().slideUp('fast');
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="#">product</a></li>
+								<li><a href="product.php">product</a></li>
 								<li><a href="#">post</a></li>
 								<li><a href="#">new post</a></li>
-
 								<li><a href="contact.html">contact</a></li>
 							</ul>
 
