@@ -1752,7 +1752,7 @@ section
 
 
 /*各ボックスの設定*/
-#main .list {
+.list {
 	position: relative;overflow: hidden;
 	margin-bottom: 20px;
 	padding: 20px;		/*ボックス内の余白。ここを変更する際は、下の「.list a」のpaddingとmarginの数字も合わせる。marginの方はマイナス記号を忘れずに。*/
@@ -1761,17 +1761,17 @@ section
 	border-radius: 6px;	/*角丸のサイズ*/
 	box-shadow: 0px 2px 5px #ccc, 0px 0px 0px 1px #fff inset;	/*影の設定。右へ・下へ・ぼかし幅・色の設定, ＋内側への影を右・下・ぼかし幅・距離・色を設定*/
 }
-#main .list a {
+.list a {
 	text-decoration: none;display: block;overflow: hidden;
 	padding: 20px;
 	margin: -20px;
 }
 /*マウスオン時の背景色*/
-#main .list a:hover {
+.list a:hover {
 	background: #fff;
 }
 /*リンクを貼った際に出る「→」マーク*/
-#main .list a::before {
+.list a::before {
 	content: "→";	/*出力する文字。変更しても構いませんが機種依存文字は化けるので使わないで下さい。*/
 	font-size: 12px;	/*文字サイズ*/
 	display: block;
@@ -1787,11 +1787,11 @@ section
 	border-radius: 50%;	/*角丸のサイズ。50%にすると円になる。*/
 }
 /*マウスオン時の「→」マーク*/
-#main .list a:hover::before {
+.list a:hover::before {
 	background: #5fb10f;	/*背景色*/
 }
 /*ボックス内のh4タグ設定*/
-#main .list h4 {
+.list h4 {
 	padding-left: 10px;	/*枠線とテキストとの間の余白*/
  	border-bottom: 1px solid #CCC;	/*下側の線の幅、線種、色*/
 	border-left: 3px solid #5fb10f;	/*左側の線の幅、線種、色*/
@@ -1799,13 +1799,13 @@ section
 	color: #5fb10f;	/*文字色*/
 }
 /*ボックス内のp(段落)タグ設定*/
-#main .list p {
+.list p {
 	padding: 0px !important;
 	font-size: 13px;
 	line-height: 1.6;
 }
 /*ボックス内の画像*/
-#main .list figure {
+.list figure {
 	float: left;	/*左に回り込み*/
 	width: 30%;
 	background: #FFF;	/*画像の背景色。ここでは枠線と画像の間の色になります。*/
@@ -1819,7 +1819,7 @@ section
 	opacity: 0.3 !important;	/*半透明にする設定*/
 }
 /*登録日情報*/
-#main .list .date {
+.list .date {
 	display: block;
 	font-size: 11px;	/*文字サイズ*/
 	color: #999;		/*文字色*/
@@ -1828,29 +1828,29 @@ section
 
 /*一覧ページの各物件ボックス内のテーブル（※CMS用）
 ---------------------------------------------------------------------------*/
-#main .list table {
+.list table {
 	font-size: 12px;	/*文字サイズ*/
 	width: 63%;			/*テーブル幅*/
 	margin-bottom: 5px;
 	background: #fff;	/*背景色*/
 }
-#main .list table,
-#main .list table td,
-#main .list table th{
+.list table,
+.list table td,
+.list table th{
 	border: 1px solid #dcdcdc;	/*枠線の幅、線種、色*/
 }
-#main .list table td,
-#main .list table th{
+.list table td,
+.list table th{
 	padding: 1%;	/*テーブル内の余白*/
 }
 /*色のついた見出しブロック*/
-#main .list table th{
+.list table th{
 	width: 20%;		/*幅*/
 	text-align: center;		/*文字をセンタリング*/
 	font-weight: normal;	/*デフォルトの太字を標準にする設定*/
 	background: #edf0f5;	/*背景色*/
 }
 /*白い説明用ブロック*/
-#main .list table td {
+.list table td {
 	width: 30%;	/*幅*/
 }

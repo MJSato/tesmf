@@ -88,12 +88,12 @@
 			</div>
 		</div>
     </div>
-    
+
     <section>
     <div class="list">
 <a href="#">
 <h4>製品</h4>
-<figure><img src="images/sample1.jpg" alt=""></figure>
+<figure><img src="images/table1.jpg" alt=""></figure>
 <table>
 <tr>
 <th>メーカー</th>
@@ -111,7 +111,8 @@
 <span class="date">【登録日:20XX/XX/XX】【更新日:20XX/XX/XX】</span>
 </a>
 </div>
-</section>				
+</section>		
+
 					<footer class="footer">
 							<div class="container">
 								<div class="row">
