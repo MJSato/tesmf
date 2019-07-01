@@ -134,18 +134,10 @@ h1, h2, h3, h4, h5, h6
 	font-family: 'Poppins', sans-serif;
 	color: #282828;
 	-webkit-font-smoothing: antialiased;
-	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	-webkit-text-shadow: rgba(148, 100, 100, 0.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
-h1::selection,
-h2::selection,
-h3::selection,
-h4::selection,
-h5::selection,
-h6::selection
-{
 
-}
 ::-webkit-input-placeholder
 {
 	font-size: 16px !important;
@@ -719,7 +711,7 @@ section
 	display: block;
 	position: relative;
 	border-bottom: solid 1px #b5aec4;
-	vertical-align: middle;
+	
 }
 .menu_item > a
 {
@@ -881,10 +873,7 @@ section
 	background: #fe4c50;
 	content: '';
 }
-.product_details_title p
-{
-	color: #;
-}
+
 
 /*********************************
 4. Breadcrumbs
@@ -975,54 +964,7 @@ section
 	margin-top: 39px;
 }
 
-/*********************************
-7. Follow Us
-*********************************/
 
-.follow_us_contents
-{
-	margin-top: 32px;
-}
-.social
-{
-	margin-top: 20px;
-}
-.social li
-{
-	margin-right: 12px;
-}
-.social li:last-child
-{
-	margin-right: 0px;
-}
-.social li a
-{
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	-webkit-transition: all 300ms ease;
-	-moz-transition: all 300ms ease;
-	-ms-transition: all 300ms ease;
-	-o-transition: all 300ms ease;
-	transition: all 300ms ease;
-}
-.social li a i
-{
-	color: #FFFFFF;
-}
-.social li:hover a
-{
-	transform: translateY(-5px);
-	box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
-}
 
 /*********************************
 8. Contact Form
@@ -1139,7 +1081,7 @@ textarea:hover
 	color: #f5c136;
 	font-size: 18px;
 }
-.review_submit_btn
+.input_submit_btn
 {
 	width: 170px;
 	border: none;
@@ -1149,6 +1091,132 @@ textarea:hover
 	font-weight: 500;
 	cursor: pointer;
 }
+.popupModal1 > input { /* ラジオボックス非表示 */
+    display: none;
+}
+.popupModal1 > input:nth-child(1) + label { 
+    cursor: pointer;
+}
+.modalPopup2 { /* 初期設定 ポップアップ非表示 */
+    display: none;
+}
+
+.popupModal1 > input:nth-child(1):checked + label + input:nth-child(3) + label + input:nth-child(5) + label + .modalPopup2 {/* ラジオ１ チェックでポップアップ表示 */
+    display: block;
+    z-index: 998;
+    position: fixed;
+    width: 90%;
+    height: 80%;
+    border-radius: 20px;
+    left: 50%;
+    top: 50%;
+    margin-top: 30px;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background: #fff;
+    padding: 10px 20px;
+    overflow: hidden;
+}
+@media (min-width: 768px) {/* PCのときはページの真ん中の600x600領域 */
+.popupModal1 > input:nth-child(1):checked + label + input:nth-child(3) + label + input:nth-child(5) + label + .modalPopup2{
+         width: 600px;
+         height: 600px;
+         padding: 30px;
+
+    }
+.popupModal1 > input:nth-child(1):checked + label + input:nth-child(3) + label + input:nth-child(5) + label {
+     left: 50% !important;
+     top: 50% !important;
+     margin-left: 270px !important;
+     margin-top: -310px !important;
+}
+}
+
+.popupModal1 > input:nth-child(1):checked + label + input:nth-child(3) + label + input:nth-child(5) + label + .modalPopup2 > div {/* */
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.popupModal1 > input:nth-child(1):checked + label + input:nth-child(3) + label + input:nth-child(5) + label + .modalPopup2 > div > iframe {
+    width: 100%;
+      height:100%;
+      border:none;
+      display:block;
+}
+
+.popupModal1 > input:nth-child(1):checked + label + input:nth-child(3) + label + input:nth-child(5) + label + .modalPopup2 > div > img {/* ポップアップの中の要素 */
+max-width: 100%;
+}
+.popupModal1 > input:nth-child(1) + label ~ label {
+    display: none;/* ラジオ１ 以外のラベルを初期は非表示 */
+
+}
+.popupModal1 > input:nth-child(1):checked + label + input:nth-child(3) + label {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.70);
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 997;
+    text-indent: -999999px;
+    overflow: hidden;
+}
+.popupModal1 > input:nth-child(1):checked + label + input:nth-child(3) + label + input:nth-child(5) + label {
+    background: rgba(255, 255, 255, 0.5);
+    display: inline-block;
+    position: fixed;
+    left: 10px;
+    bottom: 20px;
+    z-index: 999;
+    width: 44pt;
+    height: 44pt;
+    font-size: 40px;
+    border-radius: 50%;
+    line-height: 44pt;
+    text-align: center;
+    box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.popupModal1 > input:nth-child(1) + label + input:nth-child(3):checked + label + input:nth-child(5) + label + .modalPopup2,
+.popupModal1 > input:nth-child(1) + label + input:nth-child(3) + label + input:nth-child(5):checked + label + .modalPopup2 { /* ラジオ２と３ どっちかチェックでポップアップ非表示 */
+    display: none;
+}
+
+
+.modalPopup2 {
+    animation: fadeIn 1s ease 0s 1 normal;
+    -webkit-animation: fadeIn 1s ease 0s 1 normal;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+.popupModal1 .modalTitle {
+     padding-bottom: .5em;
+     margin: .5em 0;
+     border-bottom:
+     1px solid #ccc;
+     font-weight: bold;
+}
+.popupModal1 .modalMain {
+     color:#222;
+     text-align: left;
+     font-size: 14px;
+     line-height: 1.8em;
+}
+
 
 /*********************************
 9. Newsletter
