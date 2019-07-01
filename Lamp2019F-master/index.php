@@ -13,6 +13,22 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+$(function() {
+var menu = $('.menu');
+$('li', menu)
+.mouseover(function(e) {
+$('ul', this).stop().slideDown('fast');
+})
+.mouseout(function(e) {
+$('ul', this).stop().slideUp('fast');
+});
+});
+</script>
+
 </head>
 
 <body>
@@ -43,28 +59,24 @@
 								<li><a href="#">post</a></li>
 								<li><a href="#">new post</a></li>
 
-								<li>
-									<a href="#">
-										Account
-										<i class="fa fa-angle-down"></i></a>
-										
-									<ul class="menu__second-level">
+								<li><a href="contact.html">contact</a></li>
+							</ul>
+
+							<ul class="navbar_user">
+								<li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
+								<ul class="menu__second-level">
 										<li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i>login</a></li>
 										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>sign up</a></li>
 									</ul>
-								</li>
-
-								<li><a href="contact.html">contact</a></li>
-							</ul>
-							<ul class="navbar_user">
-								<li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+							</li>
 								<li class="checkout">
 									<a href="#">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 									</a>
 								</li>
 							</ul>
+
 							<div class="hamburger_container">
 								<i class="fa fa-bars" aria-hidden="true"></i>
 							</div>
