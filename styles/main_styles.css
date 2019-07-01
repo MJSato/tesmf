@@ -854,7 +854,7 @@ section
 	justify-content: center;
 	align-items: center;
 	width: auto;
-	height: 40px;
+	height: 80px;
 	background: #fe4c50;
 	border-radius: 3px;
 	-webkit-transition: all 0.3s ease;
@@ -1745,44 +1745,4 @@ section
 .static-page-content{
 	background-color:rgb(241, 241, 241)
 
-}
-
-
-
-.navbar_user li {
-	list-style: none;
-}
-
-.navbar_user li a {
-	width: 128px;
-	height: 40px;
-	font-size: 15px;
-	color: #ffffff;
-	background: #0077ff;
-	text-decoration: none;
-	border-right: 1px solid #eeeeee;
-	box-sizing: border-box;
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle;
-}
-
-.navbar_user > li:hover > a {
-	color: #ffffff;
-	background: #7fbbff;
-}
-
-.navbar_user li ul {
-	display: none;
-	margin-left: -40px;
-	position: absolute;
-}
-
-.navbar_user > li li:hover > a {
-	color: #ffffff;
-	background: #7fbbff;
-}
-
-.navbar_user li ul li a {
-	border-top: 1px solid #eeeeee;
 }

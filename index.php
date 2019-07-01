@@ -36,23 +36,20 @@
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href="index.html"><img src="images/logo1.jpg" alt="" width="100" height="100"></a>
+							<a href="index.php"><img src="images/logo1.jpg" alt="" width="100" height="100"></a>
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="product.php">product</a></li>
+								<li><a href="categories.php">product</a></li>
 								<li><a href="#">post</a></li>
 								<li><a href="#">new post</a></li>
-								<li><a href="contact.html">contact</a></li>
+								<li><a href="contact.php">contact</a></li>
 							</ul>
 
 							<ul class="navbar_user">
 								<li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
-								<ul class="menu__second-level">
-										<li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i>login</a></li>
-										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>sign up</a></li>
-									</ul>
+										<li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
 							</li>
 								<li class="checkout">
 									<a href="#">
@@ -69,72 +66,18 @@
 				</div>
 			</div>
 		</div>
-
 	</header>
-
-	<!--共通end-->
-
-
-
-	<div class="fs_menu_overlay"></div>
-	<div class="hamburger_menu">
-		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-		<div class="hamburger_menu_content text-right">
-			<ul class="menu_top_nav">
-				<li class="menu_item has-children">
-					<a href="#">
-						usd
-						<i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="menu_selection">
-						<li><a href="#">cad</a></li>
-						<li><a href="#">aud</a></li>
-						<li><a href="#">eur</a></li>
-						<li><a href="#">gbp</a></li>
-					</ul>
-				</li>
-				<li class="menu_item has-children">
-					<a href="#">
-						English
-						<i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="menu_selection">
-						<li><a href="#">French</a></li>
-						<li><a href="#">Italian</a></li>
-						<li><a href="#">German</a></li>
-						<li><a href="#">Spanish</a></li>
-					</ul>
-				</li>
-				<li class="menu_item has-children">
-					<a href="#">
-						My Account
-						<i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="menu_selection">
-						<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-						<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
-					</ul>
-				</li>
-				<li class="menu_item"><a href="#">home</a></li>
-				<li class="menu_item"><a href="#">shop</a></li>
-				<li class="menu_item"><a href="#">promotion</a></li>
-				<li class="menu_item"><a href="#">pages</a></li>
-				<li class="menu_item"><a href="#">blog</a></li>
-				<li class="menu_item"><a href="#">contact</a></li>
-			</ul>
-		</div>
-	</div>
 
 	<!-- Slider -->
 
-	<div class="main_slider" style="background-image:url(images/slider_1.jpg)">
+	<div class="main_slider" style="background-image:url(images/diy.jpg)">
 		<div class="container fill_height">
 			<div class="row align-items-center fill_height">
 				<div class="col">
 					<div class="main_slider_content">
-						<h6>Spring / Summer Collection 2017</h6>
-						<h1>Get up to 30% Off New Arrivals</h1>
-						<div class="red_button shop_now_button"><a href="#">shop now</a></div>
+						<h1>
+							<br><br>NewDIY Collection </h1>
+						<div class="red_button shop_now_button"><a href="categories.php">shop now</a></div>
 					</div>
 				</div>
 			</div>
@@ -147,23 +90,23 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
-					<div class="banner_item align-items-center" style="background-image:url(images/banner_1.jpg)">
+					<div class="banner_item align-items-center" style="background-image:url(images/c1.jpg)">
 						<div class="banner_category">
-							<a href="categories.html">women's</a>
+							<a href="categories.php">chair's</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="banner_item align-items-center" style="background-image:url(images/banner_2.jpg)">
+					<div class="banner_item align-items-center" style="background-image:url(images/c2.jpg)">
 						<div class="banner_category">
-							<a href="categories.html">accessories's</a>
+							<a href="categories.php">table's</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="banner_item align-items-center" style="background-image:url(images/banner_3.jpg)">
+					<div class="banner_item align-items-center" style="background-image:url(images/c3.jpg)">
 						<div class="banner_category">
-							<a href="categories.html">men's</a>
+							<a href="categories.php">shelf's</a>
 						</div>
 					</div>
 				</div>
@@ -203,7 +146,7 @@
 						<div class="product-item men">
 							<div class="product discount product_filter">
 								<div class="product_image">
-									<img src="images/product_1.png" alt="">
+									<img src="images/item.jpg" alt="">
 								</div>
 								<div class="favorite favorite_left"></div>
 								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
