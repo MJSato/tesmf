@@ -13,12 +13,9 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
-<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </head>
 
 <body>
-
-
 
 <div class="super_container">
 
@@ -90,84 +87,64 @@
 			
 			</div>
 		</div>
-	</div>
+    </div>
 
+    <section>
+    <div class="list">
+<a href="#">
+<h4>製品</h4>
+<figure><img src="images/table1.jpg" alt=""></figure>
+<table>
+<tr>
+<th>メーカー</th>
+<td>サンプルテキスト。</td>
+<th>価格</th>
+<td>XXXX円</td>
+</tr>
+<tr>
+<th>見出し</th>
+<td>サンプルテキスト。</td>
+<th>見出し</th>
+<td>サンプルテキスト。</td>
+</tr>
+</table>
+<span class="date">【登録日:20XX/XX/XX】【更新日:20XX/XX/XX】</span>
+</a>
+</div>
+</section>		
 
-<!--h-->
+					<footer class="footer">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
 
-    <center><h3>登録情報編集</h3>
-    <br />
-
-    <p>　　ユーザー名：<input type="text" name="user" size="30"></p><br />
-	<p>　　パスワード：<input type="password" name="pass" size="30"></p><br />
-	<p>　　　　　氏名：<input type="text" name="sei" size="13">　<input type="text" name="mei" size="13"></p><br />
-	<p>　　　ふりがな：<input type="text" name="sei" size="13">　<input type="text" name="mei" size="13"></p><br />
-
-	<p>生年月日：
-	<select name="year">
-	<?php optionLoop('1950', date('Y'));?>
-	</select>
-	年　　
-	<select name="year">
-	<?php optionLoop('1', '12');?>
-	</select>
-	月　　
-	<select name="day">
-	<?php optionLoop('1', '31');?>
-	</select>
-	日</p><br />
-	<?php
-	//セレクトオプションのループ設定
-	function optionLoop($start, $end){	
-		for($i = $start; $i <= $end; $i++){
-			echo "<option value=\"{$i}\">{$i}</option>";
-		}
-	}
-	?>
-
-    <p>　　　郵便番号：<input type="text" name="zip31" size="12" maxlength="3"> － <input type="text" name="zip32" size="13" maxlength="4" onKeyUp="AjaxZip3.zip2addr('zip31','zip32','pref31','addr31','addr31');"></p><br />
-    <p>　　　都道府県：<input type="text" name="pref31" size="30"></p><br />
-    <p>　　以降の住所：<input type="text" name="addr31" size="30"></p><br />
-    <p>　　　電話番号：<input type="text" name="number" size="30"></p><br />
-    <p>メールアドレス：<input type="text" name="mail" size="30"></p><br />
-
-    
-    <input id="button" type="submit" value="登録"></center>
- 
-<!-- Footer -->
-
-<footer class="footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-
-					<ul class="footer_nav">
-						<li><a href="contact.html">お問い合わせ</a></li>
-						<li><a href="privacy.html">プライバシーポリシー</a></li>
-						<li><a href="kiyaku.html">利用規約</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-					<ul>
-						<li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li><a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li><a href="https://instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="footer_nav_container">
-					<div class="cr">©2019 TeamF imagecraft</div>
-					</div>
-				</div>
-			</div>
-		</div>
-</footer>
+											<ul class="footer_nav">
+												<li><a href="contact.html">お問い合わせ</a></li>
+												<li><a href="privacy.html">プライバシーポリシー</a></li>
+												<li><a href="kiyaku.html">利用規約</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
+											<ul>
+												<li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+												<li><a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+												<li><a href="https://instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="footer_nav_container">
+											<div class="cr">©2019 TeamF imagecraft</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</footer>
 </div>
 
 
