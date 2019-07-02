@@ -93,7 +93,7 @@
 
 <!--h-->
 
-    <center><h3>登録情報編集</h3>
+    <center><h3>新規登録</h3>
     <br />
 
     <p>　　ユーザー名：<input type="text" name="user" size="30"></p><br />
