@@ -18,64 +18,60 @@
 
 <body>
 
+<header class="header trans_300">
+
+<div class="top_nav">
+</div>
+
+<!-- Main Navigation -->
+
+<div class="main_nav_container">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-right">
+				<div class="logo_container">
+					<a href="index.php"><img src="images/logo1.jpg" alt="" width="100" height="100"></a>
+				</div>
+				<nav class="navbar">
+					<ul class="navbar_menu">
+						<li><a href="categories.php">product</a></li>
+						<li><a href="#">post</a></li>
+						<li><a href="#">new post</a></li>
+						<li><a href="contact.php">contact</a></li>
+					</ul>
+
+					<ul class="navbar_user">
+						<li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
+						
+						<?php if( is_user_logged_in() ) : ?>
+						<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
+						 <?php else : ?>
+								<li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+								<?php endif; ?>
+					</li>
+						<li class="checkout">
+							<a href="#">
+								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+							</a>
+						</li>
+					</ul>
+
+					<div class="hamburger_container">
+						<i class="fa fa-bars" aria-hidden="true"></i>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+</header>
 
 
 <div class="super_container">
 
 	<!-- Header -->
 
-	<header class="header trans_300">
-
-		<div class="top_nav">
-		</div>
-
-		<!-- Main Navigation -->
-
-		<div class="main_nav_container">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-right">
-						<div class="logo_container">
-							<a href="index.html"><img src="images/logo1.jpg" alt="" width="100" height="100"></a>
-						</div>
-						<nav class="navbar">
-							<ul class="navbar_menu">
-								<li><a href="#">product</a></li>
-								<li><a href="#">post</a></li>
-								<li><a href="#">new post</a></li>
-
-								<li>
-									<a href="#">
-										My Account
-										<i class="fa fa-angle-down"></i>
-									</a>
-									<ul class="account_selection">
-										<li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i>ログイン</a></li>
-										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
-									</ul>
-								</li>
-								<li><a href="contact.html">contact</a></li>
-							</ul>
-							<ul class="navbar_user">
-								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-								<li class="checkout">
-									<a href="#">
-										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-										<span id="checkout_items" class="checkout_items">2</span>
-									</a>
-								</li>
-							</ul>
-							<div class="hamburger_container">
-								<i class="fa fa-bars" aria-hidden="true"></i>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</header>
 
 	<!--共通-->
 	
