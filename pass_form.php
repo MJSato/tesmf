@@ -31,16 +31,16 @@ if(empty($_GET)) {
 			//例外処理を投げる（スロー）ようにする
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
-			/*flagが0の未登録者・仮登録日から24時間以内
+			//flagが0の未登録者・仮登録日から24時間以内
 			$statement = $dbh->prepare("SELECT mail FROM pre_member WHERE urltoken=(:urltoken) AND flag =0 AND date > now() - interval 24 hour");
 			$statement->bindValue(':urltoken', $urltoken, PDO::PARAM_STR);
 			$statement->execute();
-			*/
+			
 			
 			//レコード件数取得
 			$row_count = $statement->rowCount();
 			
-			/*24時間以内に仮登録され、本登録されていないトークンの場合
+			//24時間以内に仮登録され、本登録されていないトークンの場合
 			if( $row_count ==1){
 				$mail_array = $statement->fetch();
 				$mail = $mail_array[mail];
@@ -48,7 +48,7 @@ if(empty($_GET)) {
 			}else{
 				$errors['urltoken_timeover'] = "このURLはご利用できません。有効期限が過ぎた等の問題があります。もう一度登録をやりなおして下さい。";
 			}
-			*/
+			
 			
 			//データベース接続切断
 			$dbh = null;

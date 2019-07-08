@@ -65,7 +65,7 @@ if(count($errors) === 0){
 <?php if (count($errors) === 0): ?>
 
 
-<form action="registration_insert.php" method="post">
+<form action="Done.php" method="post">
 
 <p>パスワード：<?=$password_hide?></p>
 

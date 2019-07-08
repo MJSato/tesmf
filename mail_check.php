@@ -48,7 +48,7 @@ if(empty($_POST)) {
 if (count($errors) === 0){
 	
 	$urltoken = hash('sha256',uniqid(rand(),1));
-	$url = "http://wiz.developluna.co.jp/~e23/ColoShop/pass_form.php"."?urltoken=".$urltoken;
+	$url = "http://wiz.developluna.jp/~tmF2019/Lamp2019F/pass_form.php"."?urltoken=".$urltoken;
 	
 	//ここでデータベースに登録する
 	try{
