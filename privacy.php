@@ -47,12 +47,9 @@
 							<ul class="navbar_user">
 								<li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
 								
-								<?php if( is_user_logged_in() ) : ?>
 								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
-                                 <?php else : ?>
 										<li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
 										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
-										<?php endif; ?>
 							</li>
 								<li class="checkout">
 									<a href="#">
