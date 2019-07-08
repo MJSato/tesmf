@@ -43,7 +43,7 @@
 					<ul class="navbar_user">
 						<li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
 						
-						<?php if( is_user_logged_in() ) : ?>
+						<?php if( true )://is_user_logged_in() ) : ?>
 						<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
 						 <?php else : ?>
 								<li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
@@ -96,8 +96,8 @@
 
     <p>　　ユーザー名：<input type="text" name="user" size="30"></p><br />
 	<p>　　パスワード：<input type="password" name="pass" size="30"></p><br />
-	<p>　　　　　氏名：<input type="text" name="sei" size="13">　<input type="text" name="mei" size="13"></p><br />
-	<p>　　　ふりがな：<input type="text" name="sei" size="13">　<input type="text" name="mei" size="13"></p><br />
+	<p>　　　　　氏名：<input type="text" name="sei" size="30"></p><br />
+	<p>　　　ふりがな：<input type="text" name="sei" size="30"></p><br />
 
 	<p>生年月日：
 	<select name="year">

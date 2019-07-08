@@ -1716,3 +1716,13 @@ section
 	background-color:rgb(241, 241, 241)
 
 }
+
+/*********************************
+mailform
+*********************************/
+
+input#button 
+{
+	padding: 15px 40px;
+	font-size: 1.2em;
+}

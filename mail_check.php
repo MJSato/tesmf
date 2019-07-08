@@ -21,7 +21,7 @@ $dbh = db_connect();
 $errors = array();
 
 if(empty($_POST)) {
-	header("Location: registration_mail_form.php");
+	header("Location: mail_form.php");
 	exit();
 }else{
 	//POSTされたデータを変数に入れる
@@ -48,7 +48,7 @@ if(empty($_POST)) {
 if (count($errors) === 0){
 	
 	$urltoken = hash('sha256',uniqid(rand(),1));
-	$url = "http://◯◯◯.co.jp/pass_form.php"."?urltoken=".$urltoken;
+	$url = "http://wiz.developluna.co.jp/~e23/ColoShop/pass_form.php"."?urltoken=".$urltoken;
 	
 	//ここでデータベースに登録する
 	try{
@@ -70,9 +70,47 @@ if (count($errors) === 0){
 		die();
 	}
 	
+	//メールの宛先
+	$mailTo = $mail;
+ 
+	//Return-Pathに指定するメールアドレス
+	$returnMail = 'web@sample.com';
+ 
+	$name = "ウェブの葉ショップ";
+	$mail = 'web@sample.com';
+	$subject = "【ウェブの葉ショップ】会員登録用URLのお知らせ";
+ 
+$body = <<< EOM
+24時間以内に下記のURLからご登録下さい。
+{$url}
+EOM;
+ 
+	mb_language('ja');
+	mb_internal_encoding('UTF-8');
+ 
+	//Fromヘッダーを作成
+	$header = 'From: ' . mb_encode_mimeheader($name). ' <' . $mail. '>';
+ 
+	if (mb_send_mail($mailTo, $subject, $body, $header, '-f'. $returnMail)) {
 	
+	 	//セッション変数を全て解除
+		$_SESSION = array();
+	
+		//クッキーの削除
+		if (isset($_COOKIE["PHPSESSID"])) {
+			setcookie("PHPSESSID", '', time() - 1800, '/');
+		}
+	
+ 		//セッションを破棄する
+ 		session_destroy();
+ 	
+ 		$message = "メールをお送りしました。24時間以内にメールに記載されたURLからご登録下さい。";
+ 	
+	 	} else {
+		$errors['mail_error'] = "メールの送信に失敗しました。";
+	}	
 }
-
+ 
 ?>
 
 <!DOCTYPE html>
