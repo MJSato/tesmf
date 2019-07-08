@@ -203,7 +203,7 @@
 									<div class="product-item men">
 										<div class="product discount product_filter">
 											<div class="product_image">
-												<img src="images/ta1.jpg" alt="" height="200">
+												<img src="images/ta1.jpg" alt="" height="200" width="200">
 											</div>
 											<div class="favorite favorite_left"></div>
 											<div class="product_info">
@@ -243,6 +243,23 @@
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php">ローテーブル</a></h6>
 												<div class="product_price">3,500円</div>
+											</div>
+											<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+
+										</div>
+									</div>
+
+									<!-- Product 4 -->
+
+									<div class="product-item women">
+										<div class="product product_filter">
+											<div class="product_image">
+												<img src="images/table1.jpg" alt="" height="200">
+											</div>
+											<div class="favorite"></div>
+											<div class="product_info">
+												<h6 class="product_name"><a href="single.php">ローテーブル</a></h6>
+												<div class="product_price">5,000円</div>
 											</div>
 											<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 
