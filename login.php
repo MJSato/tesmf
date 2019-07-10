@@ -95,7 +95,7 @@
 				</div>
 
 					<div align="center">
-					<a href="index.html">
+					<a href="frontindex.php">
 							<input type="submit" class="button02" value="ログイン">
 					</a>
 				</div>

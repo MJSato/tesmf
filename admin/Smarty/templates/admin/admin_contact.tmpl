@@ -140,7 +140,7 @@ function del_func_form(pm,mess){
                                   <li class="nav-divider"></li>
                                   
                                   <li>
-                                    <a href="index.php">
+                                    <a href="table.php">
                                       <i class="fa fa-table"></i>
                                       <span class="link-title">ユーザーテーブル</span>
                                     </a>
@@ -153,12 +153,15 @@ function del_func_form(pm,mess){
                                     </a>
                                   </li>
 
-                                  <li>
+                                                                    <li>
                                     <a href="admin_contact.php">
                                       <i class="fa fa-table"></i>
                                       <span class="link-title">お問い合わせ</span>
                                     </a>
                                   </li>
+
+
+
 
                                   <li class="nav-divider"></li>
                                   <li>
@@ -184,32 +187,40 @@ function del_func_form(pm,mess){
                 <div class="icons"><i class="fa fa-table"></i></div>
                 <h5>ユーザーテーブル</h5>
             </header>
+            <p><a href="adminindex_detail.php">新規</a></p>
+<p>{$pager_arr}</p>
+
             <div id="collapse4" class="body">
-<form name="form1" action="{$smarty.server.PHP_SELF}" method="post" >
-<a href="admin_list.php">一覧に戻る</a><br />
-<table>
-<tr>
-<th>ID</th>
-<td width="70%">{$admin_master_id_txt}</td>
-</tr>
-<tr>
-<th>ログイン</th>
-<td width="70%"><strong>{$smarty.post.admin_login|escape}</strong>
-<input type="hidden"   name="admin_login" value="{$smarty.post.admin_login|escape}">
+            <form name="form1" action="{$smarty.server.PHP_SELF}" method="post" >
+
+                <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th>ユーザーID</th>
+                        <th>タイトル</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+{foreach from=$rows key=k item=value}
+<td width="35%" class="center">
+<a href="admin_detail.php?aid={$value.admin_master_id}">{$value.admin_name|escape}</a>
 </td>
+<td width="35%" class="center">{$value.admin_login|escape}</td>
+<td width="30%" class="center">
+<input type="button" value="削除確認" onClick="javascript:del_func_form({$value.admin_master_id},'【{$value.admin_name|escape}】')" /></td>
 </tr>
+{foreachelse}
 <tr>
-<th class="nobottom">管理者名</th>
-<td class="nobottom" width="70%"><strong>{$smarty.post.admin_name|escape}</strong>
-<input type="hidden" name="admin_name" value="{$smarty.post.admin_name|escape}" ></td>
+<tr><td colspan="3" class="nobottom">管理者が見つかりません</td></tr>
 </tr>
-<input type="hidden"  name="enc_password" value="{$smarty.post.enc_password|escape}" >
-<input type="hidden"  name="enc_password_chk" value="{$smarty.post.enc_password_chk|escape}" >
-</table>
-<input type="hidden" name="func" value="" />
+{/foreach}
+
+                    </tbody>                </table>
+                    <input type="hidden" name="func" value="conf" />
 <input type="hidden" name="param" value="" />
 <input type="hidden" name="admin_master_id" value="{$admin_master_id}" />
-<p class="center"><input type="button" value="戻る" onClick="set_func_form('edit','')" />&nbsp;<input type="button" value="{$button}" onClick="set_func_form('set','')" /></p>
 </form>
 
             </div>

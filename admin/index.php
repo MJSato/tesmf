@@ -1,9 +1,4 @@
 <?php
-/*!
-@file admin_list.php
-@brief 管理者一覧(Smarty版)
-@copyright Copyright (c) 2017 Yamanoi Yasushi.
-*/
 
 /////////////////////////////////////////////////////////////////
 /// 実行ブロック
@@ -45,7 +40,7 @@ if(is_func_active()){
                 deljob();
                 //リダイレクトするページの計算
                 $re_page = $page;
-                $obj = new cadmin_master();
+                $obj = new cUSERS();
                 $allcount = $obj->get_all_count(false);
                 $last_page = (int)($allcount / $limit);
                 if($allcount % $limit){
@@ -113,7 +108,7 @@ function readdata(){
     global $limit;
     global $rows;
     global $page;
-    $obj = new cadmin_master();
+    $obj = new cUSERS();
     $from = ($page - 1) * $limit;
     $rows = $obj->get_all(false,$from,$limit);
 }
@@ -127,8 +122,7 @@ function readdata(){
 function deljob(){
     $chenge = new cchange_ex();
     if($_POST['param'] > 0){
-        $chenge->delete("admin_master","admin_master_id=" . $_POST['param']);
-
+        $chenge->delete("USERS","user_id=" . $_POST['param']);
     }
 }
 
@@ -145,7 +139,7 @@ function assign_page_block(){
     global $limit;
     global $page;
     $retstr = '';
-    $obj = new cadmin_master();
+    $obj = new cUSERS();
     $allcount = $obj->get_all_count(false);
     $ctl = new cpager($_SERVER['PHP_SELF'],$allcount,$limit);
     $smarty->assign('pager_arr',$ctl->get('page',$page));
@@ -188,7 +182,7 @@ assign_admin_master_list();
 assign_tgt_uri();
 
 //Smartyを使用した表示(テンプレートファイルの指定)
-$smarty->display('admin/admin_contact.tmpl');
+$smarty->display('admin/table.tmpl');
 
 
 ?>
