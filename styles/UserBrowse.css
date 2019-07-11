@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @charset "utf-8";
 .btn_f {
 	width: 160px;
@@ -79,4 +80,87 @@ margin-left :18px;
       
          div{
         margin:20px;	/* ボタンとテキストボックス間の余白を指定する */	
+=======
+@charset "utf-8";
+.btn_f {
+	width: 160px;
+	height: 38px;
+	background: #FFF;
+	background: -moz-linear-gradient(top,#f47c9e 0%,#b23b5d);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f47c9e), to(#b23b5d));
+	border: 1px solid #b23b5d;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	color: #FFF;
+	padding: 42px 20px 20px;
+	display: block;
+	text-align: center;
+	font-weight: bold;
+	font-size: 120%;
+	text-shadow: 1px 1px 3px rgba(0,0,0,1);
+	transition: background-color 0.5s ease-in;
+	-webkit-transition: background-color 0.5s ease-in;
+}
+.btn_f:hover {
+	background: #b23b5d;
+	color: #FFF;
+	border: 1px solid #FFF;
+}
+.evaluation{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+  .evaluation input[type='radio']{
+    display: none;
+  }
+  .evaluation label{
+    position: relative;
+    padding: 10px 10px 0;
+    color: gray;
+    cursor: pointer;
+    font-size: 50px;
+  }
+  .evaluation label .text{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+  }
+  .evaluation label:hover,
+  .evaluation label:hover ~ label,
+  .evaluation input[type='radio']:checked ~ label{
+    color: #ffcc00;
+  }
+.maru img{
+    border-radius: 50%;
+    height: 180px;
+    width : 180px;
+    
+}
+
+.haiti {
+margin-left :18px;
+    
+}
+.haiti2 div{
+    
+        clear:both;
+    }
+    .icon label {
+        color: #AAAAAA;	/* ラベルテキストの色を指定する */
+        font-size: 13px; /* ラベルテキストのサイズを指定する */
+        background-color: #006DD9;/* ラベルの背景色を指定する */
+        padding: 6px;	/* ラベルとテキスト間の余白を指定する */
+        border-radius: 10px;	/* ラベルボックスの角丸を指定する */
+        cursor:pointer;	/* マウスカーソルの形を指定する */
+        }
+      
+         div{
+        margin:20px;	/* ボタンとテキストボックス間の余白を指定する */	
+>>>>>>> f5f408bdf7e98c5ada2aa84af16bd2e3fd0ff732
         }	
