@@ -184,15 +184,7 @@ function del_func_form(pm,mess){
                     <tr>
                         <th>ユーザーID</th>
                         <th>ログインID</th>
-                        <th>パスワード</th>
                         <th>ユーザー名前</th>
-                        <th>氏名</th>
-                        <th>送り仮名</th>
-                        <th>郵便番号</th>
-                        <th>アドレス</th>
-                        <th>誕生日</th>
-                        <th>電話番号</th>
-                        <th>メールアドレス</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -207,31 +199,7 @@ function del_func_form(pm,mess){
 <a href="table_detail.php?pid={$value.login_id}">{$value.login_id}</a>
 </td>
 <td width="20%" class="center">
-{$value.login_pw}
-</td>
-<td width="20%" class="center">
 {$value.user_name}
-</td>
-<td width="20%" class="center">
-{$value.name}
-</td>
-<td width="20%" class="center">
-{$value.kana}
-</td>
-<td width="20%" class="center">
-{$value.postal_code}
-</td>
-<td width="20%" class="center">
-{$value.address}
-</td>
-<td width="20%" class="center">
-{$value.birth}
-</td>
-<td width="20%" class="center">
-{$value.tel}
-</td>
-<td width="20%" class="center">
-{$value.email}
 </td>
 <td width="15%" class="center">
 <input type="button" value="削除確認" onClick="javascript:del_func_form({$value.user_id},'【{$value.name|escape}】')" /></td>

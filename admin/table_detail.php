@@ -246,7 +246,7 @@ function assign_prefecture_rows(){
     //$smartyをグローバル宣言（必須）
     global $smarty;
     //都道府県の一覧を取得
-    $prefecture_obj = new cprefecture();
+    $prefecture_obj = new cCONTACT();
     $allcount = $prefecture_obj->get_all_count(false);
     $prefecture_rows = $prefecture_obj->get_all(false,0,$allcount);
     $smarty->assign('prefecture_rows',$prefecture_rows);

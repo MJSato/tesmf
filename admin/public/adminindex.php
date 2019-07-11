@@ -1,9 +1,4 @@
 <?php
-/*!
-@file admin_list.php
-@brief 管理者一覧(Smarty版)
-@copyright Copyright (c) 2017 Yamanoi Yasushi.
-*/
 
 /////////////////////////////////////////////////////////////////
 /// 実行ブロック

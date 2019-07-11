@@ -1,4 +1,27 @@
-<!doctype html>
+<?php
+/* Smarty version 3.1.33, created on 2019-07-11 10:12:50
+  from '/home/tmF2019/public_html/Lamp2019F/admin/Smarty/templates/admin/table_detail.tmpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d268d121ccd98_99716393',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'af1de61eeaf2ee6ac64ef1ae6c2facb58a2e7517' => 
+    array (
+      0 => '/home/tmF2019/public_html/Lamp2019F/admin/Smarty/templates/admin/table_detail.tmpl',
+      1 => 1562807557,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5d268d121ccd98_99716393 (Smarty_Internal_Template $_smarty_tpl) {
+?><!doctype html>
 <html>
 
 <head>
@@ -9,8 +32,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>imagecraft admin</title>
-{literal}
-<script type="text/javascript">
+
+<?php echo '<script'; ?>
+ type="text/javascript">
 <!--
 function set_func_form(fn,pm){
 	document.form1.target = "_self";
@@ -31,8 +55,9 @@ function del_func_form(pm,mess){
 	}
 }
 // -->
-</script>
-{/literal}
+<?php echo '</script'; ?>
+>
+
     
     <meta name="description" content="Free Admin Template Based On Twitter Bootstrap 3.x">
     <meta name="author" content="">
@@ -64,21 +89,29 @@ function del_func_form(pm,mess){
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <?php echo '<script'; ?>
+ src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"><?php echo '</script'; ?>
+>
 <![endif]-->
 
     <!--For Development Only. Not required -->
-    <script>
+    <?php echo '<script'; ?>
+>
         less = {
             env: "development",
             relativeUrls: false,
             rootpath: "/assets/"
         };
-    </script>
+    <?php echo '</script'; ?>
+>
     <link rel="stylesheet" href="public/assets/css/style-switcher.css">
     <link rel="stylesheet/less" type="text/css" href="public/assets/less/theme.less">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.js"></script>
+    <?php echo '<script'; ?>
+ src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.js"><?php echo '</script'; ?>
+>
 
   </head>
 
@@ -140,7 +173,7 @@ function del_func_form(pm,mess){
                                   <li class="nav-divider"></li>
                                   
                                   <li>
-                                    <a href="table.php">
+                                    <a href="index.php">
                                       <i class="fa fa-table"></i>
                                       <span class="link-title">ユーザーテーブル</span>
                                     </a>
@@ -150,6 +183,13 @@ function del_func_form(pm,mess){
                                     <a href="adminindex.php">
                                       <i class="fa fa-table"></i>
                                       <span class="link-title">管理者テーブル</span>
+                                    </a>
+                                  </li>
+
+                                  <li>
+                                    <a href="admin_contact.php">
+                                      <i class="fa fa-table"></i>
+                                      <span class="link-title">お問い合わせ</span>
                                     </a>
                                   </li>
 
@@ -177,40 +217,72 @@ function del_func_form(pm,mess){
                 <div class="icons"><i class="fa fa-table"></i></div>
                 <h5>ユーザーテーブル</h5>
             </header>
-            <p><a href="adminindex_detail.php">新規</a></p>
-<p>{$pager_arr}</p>
-
             <div id="collapse4" class="body">
-            <form name="form1" action="{$smarty.server.PHP_SELF}" method="post" >
-
-                <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
-                    <thead>
-                    <tr>
-                        <th>ユーザーID</th>
-                        <th>ログインID</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-
-{foreach from=$rows key=k item=value}
-<td width="35%" class="center">
-<a href="adminindex_detail.php?aid={$value.admin_master_id}">{$value.admin_name|escape}</a>
-</td>
-<td width="35%" class="center">{$value.admin_login|escape}</td>
-<td width="30%" class="center">
-<input type="button" value="削除確認" onClick="javascript:del_func_form({$value.admin_master_id},'【{$value.admin_name|escape}】')" /></td>
-</tr>
-{foreachelse}
+<form name="form1" action="<?php echo $_SERVER['PHP_SELF'];?>
+" method="post" >
+<table>
 <tr>
-<tr><td colspan="3" class="nobottom">管理者が見つかりません</td></tr>
+<th>ユーザーID</th>
+<td width="70%"><?php echo $_smarty_tpl->tpl_vars['user_id']->value;?>
+</td>
 </tr>
-{/foreach}
-
-                    </tbody>                </table>
-                    <input type="hidden" name="func" value="conf" />
+<tr>
+<th>ログインID</th>
+<td width="70%"><?php echo $_smarty_tpl->tpl_vars['login_id']->value;?>
+</td>
+</tr>
+<tr>
+<th>パスワード</th>
+<td width="70%"><?php echo $_smarty_tpl->tpl_vars['login_pw']->value;?>
+</td>
+</tr>
+<tr>
+<th>ユーザー名前</th>
+<td width="70%"><?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
+</td>
+</tr>
+<tr>
+<th>氏名</th>
+<td width="70%"><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+</td>
+</tr>
+<tr>
+<th>フリガナ</th>
+<td width="70%"><?php echo $_smarty_tpl->tpl_vars['kana']->value;?>
+</td>
+</tr>
+<tr>
+<th>郵便番号</th>
+<td width="70%"><?php echo $_smarty_tpl->tpl_vars['postal_code']->value;?>
+</td>
+</tr>
+<tr>
+<th>アドレス</th>
+<td width="70%"><?php echo $_smarty_tpl->tpl_vars['address']->value;?>
+</td>
+</tr>
+<tr>
+<th>誕生日</th>
+<td width="70%"><?php echo $_smarty_tpl->tpl_vars['birth']->value;?>
+</td>
+</tr>
+<tr>
+<th>電話番号</th>
+<td width="70%"><?php echo $_smarty_tpl->tpl_vars['tel']->value;?>
+</td>
+</tr>
+<tr>
+<th>メールアドレス</th>
+<td width="70%"><?php echo $_smarty_tpl->tpl_vars['email']->value;?>
+</td>
+</tr>
+</table>
+<input type="hidden" name="func" value="" />
 <input type="hidden" name="param" value="" />
-<input type="hidden" name="admin_master_id" value="{$admin_master_id}" />
+<input type="hidden" name="admin_master_id" value="<?php echo $_smarty_tpl->tpl_vars['admin_master_id']->value;?>
+" />
+<p class="center"><input type="button" value="戻る" onClick="set_func_form('edit','')" />&nbsp;<input type="button" value="<?php echo $_smarty_tpl->tpl_vars['button']->value;?>
+" onClick="set_func_form('set','')" /></p>
 </form>
 
             </div>
@@ -323,37 +395,67 @@ function del_func_form(pm,mess){
             <!-- /.modal -->
             <!-- /#helpModal -->
             <!--jQuery -->
-            <script src="assets/lib/jquery/jquery.js"></script>
+            <?php echo '<script'; ?>
+ src="assets/lib/jquery/jquery.js"><?php echo '</script'; ?>
+>
 
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.26.6/js/jquery.tablesorter.min.js"></script>
-                    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+                    <?php echo '<script'; ?>
+ src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"><?php echo '</script'; ?>
+>
+                    <?php echo '<script'; ?>
+ src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"><?php echo '</script'; ?>
+>
+                    <?php echo '<script'; ?>
+ src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"><?php echo '</script'; ?>
+>
+                    <?php echo '<script'; ?>
+ src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.26.6/js/jquery.tablesorter.min.js"><?php echo '</script'; ?>
+>
+                    <?php echo '<script'; ?>
+ src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"><?php echo '</script'; ?>
+>
 
             <!--Bootstrap -->
-            <script src="assets/lib/bootstrap/js/bootstrap.js"></script>
+            <?php echo '<script'; ?>
+ src="assets/lib/bootstrap/js/bootstrap.js"><?php echo '</script'; ?>
+>
             <!-- MetisMenu -->
-            <script src="assets/lib/metismenu/metisMenu.js"></script>
+            <?php echo '<script'; ?>
+ src="assets/lib/metismenu/metisMenu.js"><?php echo '</script'; ?>
+>
             <!-- onoffcanvas -->
-            <script src="assets/lib/onoffcanvas/onoffcanvas.js"></script>
+            <?php echo '<script'; ?>
+ src="assets/lib/onoffcanvas/onoffcanvas.js"><?php echo '</script'; ?>
+>
             <!-- Screenfull -->
-            <script src="assets/lib/screenfull/screenfull.js"></script>
+            <?php echo '<script'; ?>
+ src="assets/lib/screenfull/screenfull.js"><?php echo '</script'; ?>
+>
 
 
             <!-- Metis core scripts -->
-            <script src="assets/js/core.js"></script>
+            <?php echo '<script'; ?>
+ src="assets/js/core.js"><?php echo '</script'; ?>
+>
             <!-- Metis demo scripts -->
-            <script src="assets/js/app.js"></script>
+            <?php echo '<script'; ?>
+ src="assets/js/app.js"><?php echo '</script'; ?>
+>
 
-                <script>
+                <?php echo '<script'; ?>
+>
                     $(function() {
                       Metis.MetisTable();
                       Metis.metisSortable();
                     });
-                </script>
+                <?php echo '</script'; ?>
+>
 
-            <script src="assets/js/style-switcher.js"></script>
+            <?php echo '<script'; ?>
+ src="assets/js/style-switcher.js"><?php echo '</script'; ?>
+>
         </body>
 
 </html>
+<?php }
+}
