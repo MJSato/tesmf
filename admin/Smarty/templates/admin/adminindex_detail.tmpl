@@ -116,54 +116,7 @@ function del_func_form(pm,mess){
                 </div>
 
                 <!-- /#top -->
-                    <div id="left">
-                        <div class="media user-media bg-dark dker">
-                            <div class="user-media-toggleHover">
-                                <span class="fa fa-user"></span>
-                            </div>
-                            <div class="user-wrapper bg-dark">
-                                <a class="user-link" href="">
-                                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="public/assets/img/user.gif">
-                                </a>
-                        
-                                <div class="media-body">
-                                    <h5 class="media-heading">admin</h5>
-                                    <ul class="list-unstyled user-info">
-                                        <li>管理者</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- #menu -->
-                        <ul id="menu" class="bg-blue dker">
-                                  <li class="nav-header">Menu</li>
-                                  <li class="nav-divider"></li>
-                                  
-                                  <li>
-                                    <a href="table.php">
-                                      <i class="fa fa-table"></i>
-                                      <span class="link-title">ユーザーテーブル</span>
-                                    </a>
-                                  </li>
-
-                                  <li>
-                                    <a href="adminindex.php">
-                                      <i class="fa fa-table"></i>
-                                      <span class="link-title">管理者テーブル</span>
-                                    </a>
-                                  </li>
-
-                                  <li class="nav-divider"></li>
-                                  <li>
-                                    <a href="adminlogin.php">
-                                      <i class="fa fa-sign-in"></i>
-                                      <span class="link-title">
-                            ログアウト
-                            </span>
-                                    </a>
-                                  </li>
-                        <!-- /#menu -->
-                    </div>
+{include file='./admin_menu.tmpl'}
                     <!-- /#left -->
                 <div id="content">
                     <div class="outer">
