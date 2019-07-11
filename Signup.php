@@ -116,7 +116,7 @@
 			</select>
 			年　　
 			<select name="month">
-			<?php optionLoop('1', '12');?>
+			<?php optionLoop('1', '12');?> 
 			</select>
 			月　　
 			<select name="day">

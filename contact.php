@@ -1,243 +1,239 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Contact Us</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Colo Shop Template">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
-<link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="styles/contact_styles.css">
-<link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
-<link rel="stylesheet" type="text/css" href="styles/renshumodel1.css">
-<link rel="stylesheet" type="text/css" href="styles/renshumodel2.css">
-<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<?php
+require_once("inc_base.php");
+require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
+require_once("inc_smarty.php");
+//以下はセッション管理用のインクルード
+require_once($CMS_COMMON_INCLUDE_DIR . "auth_adm.php");
 
 
-</head>
+$admin_master_id = 0;
+$err_array = array();
+$err_flag = 0;
 
-<body>
 
-<div class="super_container">
+if(isset($_GET['aid']) 
+//cutilクラスのメンバ関数をスタティック呼出
+	&& cutil::is_number($_GET['aid'])
+	&& $_GET['aid'] > 0){
+	$admin_master_id = $_GET['aid'];
+}
+//$_POST優先
+if(isset($_POST['admin_master_id']) 
+//cutilクラスのメンバ関数をスタティック呼出
+	&& cutil::is_number($_POST['admin_master_id'])
+	&& $_POST['admin_master_id'] > 0){
+	$admin_master_id = $_POST['admin_master_id'];
+}
 
-	<!-- Header -->
+//管理者クラスを構築
+$admin_master_obj = new cadmin_master();
+//配列に管理者を$_POSTに取り出す
+//すでにPOSTされていたら、DBからは取り出さない
 
-	<header class="header trans_300">
+if(isset($_POST['func'])){
+	switch($_POST['func']){
+		case 'set':
+		    if(!paramchk()){
+		        $_POST['func'] = 'edit';
+		        $err_flag = 1;
+		    }
+		    else{
+		        regist();
+		        //regist()内でリダイレクトするので
+		        //ここまで実行されればリダイレクト失敗
+		        $_POST['func'] = 'edit';
+		        //システムに問題のあるエラー
+		        $err_flag = 2;
+		    }
+		case 'conf':
+			if(!paramchk()){
+				$_POST['func'] = 'edit';
+				$err_flag = 1;
+			}
+		break;
+		case 'edit':
+			//戻るボタン。
+		break;
+		default:
+			//通常はありえない
+			echo '原因不明のエラーです。';
+			exit;
+		break;
+	}
+}
+else{
+    if($admin_master_id > 0){
+		if(($_POST = $admin_master_obj->get_tgt_id(false,$admin_master_id)) === false){
+			$admin_master_id = 0;
+			$_POST['func'] = 'new';
+		}
+		else{
+			$_POST['enc_password_chk'] = $_POST['enc_password'];
+			$_POST['func'] = 'edit';
+		}
+    }
+    else{
+		//新規の入力フォーム
+		$_POST['func'] = 'new';
+    }
+}
 
-		<div class="top_nav">
-		</div>
+//▲▲▲▲▲▲実行ブロック▲▲▲▲▲▲
+//▼▼▼▼▼▼関数ブロック▼▼▼▼▼▼
 
-		<!-- Main Navigation -->
+//--------------------------------------------------------------------------------------
+/*!
+@brief  エラー存在のアサイン
+@return なし
+*/
+//--------------------------------------------------------------------------------------
+function assign_err_flag(){
+	//$smartyをグローバル宣言（必須）
+	global $smarty;
+	global $err_flag;
+	$str = '';
+	switch($err_flag){
+		case 1:
+		$str =<<<END_BLOCK
 
-		<div class="main_nav_container">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-right">
-						<div class="logo_container">
-							<a href="index.php"><img src="images/logo1.jpg" alt="" width="100" height="100"></a>
-						</div>
-						<nav class="navbar">
-							<ul class="navbar_menu">
-								<li><a href="categories.php">product</a></li>
-								<li><a href="#">post</a></li>
-								<li><a href="#">new post</a></li>
-								<li><a href="contact.php">contact</a></li>
-							</ul>
+入力エラーがあります。各項目のエラーを確認してください。
+END_BLOCK;
+		break;
+		case 2:
+		$str =<<<END_BLOCK
 
-							<ul class="navbar_user">
-								<li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-								
-								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
-										<li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
-							</li>
-								<li class="checkout">
-									<a href="#">
-										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-									</a>
-								</li>
-							</ul>
+更新に失敗しました。サポートを確認下さい。
+END_BLOCK;
+		break;
+	}
+	$smarty->assign('err_flag',$str);
+}
 
-							<div class="hamburger_container">
-								<i class="fa fa-bars" aria-hidden="true"></i>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+//--------------------------------------------------------------------------------------
+/*!
+@brief  パラメータのチェック
+@return エラーの場合はfalseを返す
+*/
+//--------------------------------------------------------------------------------------
+function paramchk(){
+	global $err_array;
+	global $admin_master_id;
+	$retflg = true;
+////////////////////////////////////////////////////////////
+	if(ccontentsutil::chkset_err_field($err_array,'admin_name','名前','isset_nl')){
+		$retflg = false;
+	}
+////////////////////////////////////////////////////////////
+	if(ccontentsutil::chkset_err_field($err_array,'admin_login','ログインID','isset_pass')){
+		$retflg = false;
+	}
+////////////////////////////////////////////////////////////
+	if(ccontentsutil::chkset_err_field($err_array,'enc_password','パスワード','isset_pass')){
+		$retflg = false;
+	}
+	if(ccontentsutil::chkset_err_field($err_array,'enc_password_chk','パスワード確認','isset_pass')){
+		$retflg = false;
+	}
+	else if($_POST['enc_password'] != $_POST['enc_password_chk']){
+		$err_array['enc_password_chk'] = "「パスワード確認」が「パスワード」と違っています。";
+		$retflg = false;
+	}
+	return $retflg;
+}
 
-	<div class="fs_menu_overlay"></div>
+//--------------------------------------------------------------------------------------
+/*!
+@brief  管理者データの追加／更新。保存後自分自身を再読み込みする。
+@return なし
+*/
+//--------------------------------------------------------------------------------------
+function regist(){
+    global $admin_master_id;
+    //パスワードが変更さえているかを確認する
+    if($admin_master_id > 0){
+        $obj = new cadmin_master();
+        $arr = $obj->get_tgt_id(false,$admin_master_id);
+        if($arr['enc_password'] != $_POST['enc_password']){
+            //変更された
+            $_POST['enc_password'] = cutil::pw_encode($_POST['enc_password']);
+        }
+    }
+    else{
+        //新規
+        $_POST['enc_password'] = cutil::pw_encode($_POST['enc_password']);
+    }
+    $dataarr = array();
+    $dataarr['admin_login'] = (string)$_POST['admin_login'];
+    $dataarr['admin_name'] = (string)$_POST['admin_name'];
+    $dataarr['enc_password'] = (string)$_POST['enc_password'];
+    $chenge = new cchange_ex();
+    if($admin_master_id > 0){
+        $chenge->update('admin_master',$dataarr,'admin_master_id=' . $admin_master_id);
+        cutil::redirect_exit($_SERVER['PHP_SELF'] . '?aid=' . $admin_master_id);
+    }
+    else{
+        $aid = $chenge->insert('admin_master',$dataarr);
+        cutil::redirect_exit($_SERVER['PHP_SELF'] . '?aid=' . $aid);
+    }
+}
 
-	<!-- Hamburger Menu -->
+//--------------------------------------------------------------------------------------
+/*!
+@brief  管理者IDのアサイン
+@return なし
+*/
+//--------------------------------------------------------------------------------------
+function assign_admin_master_id(){
+    //$smartyをグローバル宣言（必須）
+    global $smarty;
+    global $admin_master_id;
+    $smarty->assign('admin_master_id',$admin_master_id);
+}
 
-	<div class="hamburger_menu">
-		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-		<div class="hamburger_menu_content text-right">
-			<ul class="menu_top_nav">
-				<li class="menu_item has-children">
-					<a href="#">
-						usd
-						<i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="menu_selection">
-						<li><a href="#">cad</a></li>
-						<li><a href="#">aud</a></li>
-						<li><a href="#">eur</a></li>
-						<li><a href="#">gbp</a></li>
-					</ul>
-				</li>
-				<li class="menu_item has-children">
-					<a href="#">
-						English
-						<i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="menu_selection">
-						<li><a href="#">French</a></li>
-						<li><a href="#">Italian</a></li>
-						<li><a href="#">German</a></li>
-						<li><a href="#">Spanish</a></li>
-					</ul>
-				</li>
-				<li class="menu_item has-children">
-					<a href="#">
-						My Account
-						<i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="menu_selection">
-						<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-						<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
-					</ul>
-				</li>
-				<li class="menu_item"><a href="#">home</a></li>
-				<li class="menu_item"><a href="#">shop</a></li>
-				<li class="menu_item"><a href="#">promotion</a></li>
-				<li class="menu_item"><a href="#">pages</a></li>
-				<li class="menu_item"><a href="#">blog</a></li>
-				<li class="menu_item"><a href="#">contact</a></li>
-			</ul>
-		</div>
-	</div>
+//--------------------------------------------------------------------------------------
+/*!
+@brief  管理者IDのアサイン(新規の場合は「新規」)
+@return なし
+*/
+//--------------------------------------------------------------------------------------
+function assign_admin_master_id_txt(){
+    //$smartyをグローバル宣言（必須）
+    global $smarty;
+    global $admin_master_id;
+    if($admin_master_id <= 0){
+        $smarty->assign('admin_master_id_txt','新規');
+    }
+    else{
+        $smarty->assign('admin_master_id_txt',$admin_master_id);
+    }
+}
 
-	<div class="container contact_container">
-		<div class="row">
-			<div class="col">
 
-				<!-- Breadcrumbs -->
 
-				<div class="breadcrumbs d-flex flex-row align-items-center">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Contact</a></li>
-					</ul>
-				</div>
+/////////////////////////////////////////////////////////////////
+/// 関数呼び出しブロック
+/////////////////////////////////////////////////////////////////
+if(!isset($_POST['admin_login']))$_POST['admin_login'] = '';
+if(!isset($_POST['admin_name']))$_POST['admin_name'] = '';
+if(!isset($_POST['enc_password']))$_POST['enc_password'] = '';
+if(!isset($_POST['enc_password_chk']))$_POST['enc_password_chk'] = '';
+assign_err_flag();
+assign_admin_master_id();
+assign_admin_master_id_txt();
+$smarty->assign('err_array',$err_array);
 
-			</div>
-		</div>
-		<!-- Contact Us -->
+//Smartyを使用した表示(テンプレートファイルの指定)
+if(isset($_POST['func']) && $_POST['func'] == 'conf'){
+    $button = '更新';
+    if($admin_master_id <= 0){
+        $button = '追加';
+    }
+    $smarty->assign('button',$button);
+    $smarty->display('admin/adminindex_detail_conf.tmpl');
+}
+else{
+    $smarty->display('admin/contact.tmpl');
+}
 
-		<div class="row">
 
-			</div>
-
-			<div class="col-lg-6 get_in_touch_col">
-				<div class="get_in_touch_contents">
-					<h1>Contact Us</h1>
-					<p>お問い合わせの種類を選択した後にお問い合わせの内容を記入してください。</p>
-					<form action="post">
-						<div>
-							<textarea id="input_email" class="form_input input_email input_ph" type="email" name="email" placeholder="type" required="required" ></textarea>
-							<textarea id="input_message" class="input_ph input_message" name="message"  placeholder="Message" rows="3" required data-error="Please, write us a message."></textarea>
-						</div>
-						<div>
-
-							<div class="popupModal1">
-								<input type="radio" name="modalPop" id="pop11" />
-								<label for="pop11">送信する</label>
-								<input type="radio" name="modalPop" id="pop12" />
-								<label for="pop12">CLOSE</label>
-								<input type="radio" name="modalPop" id="pop13" />
-								<label for="pop13">×</label>
-								<div class="modalPopup2">
-								 <div class="modalPopup3">
-								  <h2 class="modalTitle">送信が完了しました。</h2>
-								  <div class="modalMain">
-								   <p>お問い合わせありがとうございました。</p>
-								   <p>下記ボタンよりTOPへお戻りください。</p>
-								  </div>
-								 </div>
-								</div>
-							   </div>
-							
-									
-									
-
-								  <!-- End Modal -->
-							
-								  <label for="modal-trigger-center" class="open-modal"></label>
-							
-								  
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-	<!-- Footer -->
-
-	<footer class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-
-						<ul class="footer_nav">
-							<li><a href="contact.html">お問い合わせ</a></li>
-							<li><a href="privacy.html">プライバシーポリシー</a></li>
-							<li><a href="kiyaku.html">利用規約</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-						<ul>
-							<li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							<li><a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							<li><a href="https://instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer_nav_container">
-						<div class="cr">©2019 TeamF imagecraft</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-
-</div>
-
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-<script src="js/contact_custom.js"></script>
-</body>
-
-</html>
+?>
