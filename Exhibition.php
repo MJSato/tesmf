@@ -35,8 +35,8 @@ elm.onchange = function(evt){
 <option value="accessory">accessory</option>
 </select>
 </p>
-<p>説明</p>
-<textarea name="freeans" rows="10" cols="40"> </textarea>
+
+<textarea name="freeans" rows="10" cols="40" placeholder="説明 "> </textarea>
 
 
 <p>サイズ
