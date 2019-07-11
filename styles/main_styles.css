@@ -1723,6 +1723,12 @@ mailform
 
 input#button 
 {
-	padding: 15px 40px;
+	padding: 12px 35px;
 	font-size: 1.2em;
+	margin-bottom: 30px;
+}
+
+h3.title
+{
+	margin-top: 170px;
 }

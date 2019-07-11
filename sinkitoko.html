@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>imagecraft</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+    
+img{
+    margin:0 5px 5px 0;
+    max-width:160px;
+    vertical-align:bottom;
+}
+</style>
+</head>
+<body>
+
+
+<script type="text/javascript">
+$(function () {
+        var num = 1;
+        var view_count = document.querySelectorAll("div[id]").length;
+
+        function imgView(n) {
+            var reader = new FileReader();
+            document.getElementById('file_' + n).onchange = function (e) {
+                reader.addEventListener('load', function (e) {
+                    $('#view_' + n).html('<img src="' + e.target.result + '" />');
+                });
+                reader.readAsDataURL(this.files[0]);
+            }
+
+        }
+
+        
+
+        $('button#add').click(function () {
+
+          if(view_count ===15 ){
+              $('#message').html('※ 追加フォームは' + view_count + 'つまでです。<br>');
+            }else{
+
+            num = num + 1;
+            view_count = view_count + 1;
+
+              var tr_form = '' +
+                  '<tr>' + 
+                  '<td><div  id="view_' + num + '"></div><input type="file" id="file_' + num + '" name="img[]" accept="image/*" /></td>' +
+                  '</tr>';
+              $(tr_form).appendTo($('table > tbody'));
+              $('#reload').html('<input type="button" value="リロードする" onclick="window.location.reload();" /><br>');
+
+              imgView(num);
+          }
+        });
+
+});
+</script>
+<h1>新規投稿</h1>
+<form action="data.php" method="post" enctype="multipart/form-data">
+    <table>
+            タイトル：<input type="text" name="title" value=""><br>
+            画像:<br>
+           
+            カテゴリ：<input type="text" name="category" value=""><br>
+        <tr>
+    <form action="cgi-bin/formmail.cgi" method="post">
+        作り方：<br>
+        <textarea name="kanso" rows="4" cols="40"></textarea><br>
+        <input type="reset" value="リセット">
+        <th>画像</th>
+        </thead>
+        <tbody>
+        <tr>
+            
+            <td>
+                <div id="view_1"></div>
+                <input type="file" id="file_1" name="img[]" accept="image/*">
+            </td>
+        </tr>
+        </tbody>
+        
+                <tfoot>
+                        <tr>
+                            <td>
+                                <button id="add" type="button">追加</button><span id="reload"></span>
+                            </td>
+                        </tr>
+                        </tfoot>
+        
+    </table>
+コツ・ポイント:<br>
+        <textarea name="kanso" rows="4" cols="40"></textarea><br>
+        <input type="reset" value="リセット">
+    <span id="message"></span>
+    <input type="submit" name="send" value="送信">
+</form>
+</body>
+</html>

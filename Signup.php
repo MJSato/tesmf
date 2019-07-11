@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/signup.css">
 <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </head>
 
@@ -43,12 +44,9 @@
 					<ul class="navbar_user">
 						<li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
 						
-						<?php if( true )://is_user_logged_in() ) : ?>
 						<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
-						 <?php else : ?>
 								<li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
-								<?php endif; ?>
 					</li>
 						<li class="checkout">
 							<a href="#">
@@ -94,25 +92,62 @@
     <center><h3>登録情報編集</h3>
     <br />
 
-    <p>　　ユーザー名：<input type="text" name="user" size="30"></p><br />
-	<p>　　パスワード：<input type="password" name="pass" size="30"></p><br />
-	<p>　　　　　氏名：<input type="text" name="sei" size="30"></p><br />
-	<p>　　　ふりがな：<input type="text" name="sei" size="30"></p><br />
+	<table>
 
-	<p>生年月日：
-	<select name="year">
-	<?php optionLoop('1950', date('Y'));?>
-	</select>
-	年　　
-	<select name="year">
-	<?php optionLoop('1', '12');?>
-	</select>
-	月　　
-	<select name="day">
-	<?php optionLoop('1', '31');?>
-	</select>
-	日</p><br />
-	<?php
+		<tr>
+			<th>ユーザー名</th><td><input type="text" name="user" size="30"></td>
+		</tr>
+
+		<tr>
+			<th>パスワード</th><td><input type="password" name="pass" size="30"></td>
+		</tr>
+
+		<tr>
+			<th>氏名</th><td><input type="text" name="simei" size="30"></td>
+		</tr>
+
+		<tr>
+			<th>ふりがな</th><td><input type="text" name="kana" size="30"></td>
+		</tr>
+
+		<tr>
+			<th>生年月日</th><td><select name="year">
+			<?php optionLoop('1950', date('Y'));?>
+			</select>
+			年　　
+			<select name="month">
+			<?php optionLoop('1', '12');?>
+			</select>
+			月　　
+			<select name="day">
+			<?php optionLoop('1', '31');?>
+			</select>
+			日</td>
+		</tr>
+
+		<tr>
+			<th>郵便番号</th><td><input type="text" name="zip31" size="12" maxlength="3"> － <input type="text" name="zip32" size="13" maxlength="4" onKeyUp="AjaxZip3.zip2addr('zip31','zip32','pref31','addr31','addr31');"></td>
+		</tr>
+
+		<tr>
+    		<th>都道府県</th><td><input type="text" name="pref31" size="30"></td>
+  		</tr>
+
+		<tr>
+			<th>以降の住所</th><td><input type="text" name="addr31" size="30"></td>
+		</tr>
+
+		<tr>
+			<th>電話番号</th><td><input type="text" name="number" size="30"></td>
+		</tr>
+
+		<tr>
+			<th>メールアドレス</th><td><input type="text" name="mail" size="30"></td>
+		</tr>
+
+	</table>
+
+    <?php
 	//セレクトオプションのループ設定
 	function optionLoop($start, $end){	
 		for($i = $start; $i <= $end; $i++){
@@ -121,13 +156,6 @@
 	}
 	?>
 
-    <p>　　　郵便番号：<input type="text" name="zip31" size="12" maxlength="3"> － <input type="text" name="zip32" size="13" maxlength="4" onKeyUp="AjaxZip3.zip2addr('zip31','zip32','pref31','addr31','addr31');"></p><br />
-    <p>　　　都道府県：<input type="text" name="pref31" size="30"></p><br />
-    <p>　　以降の住所：<input type="text" name="addr31" size="30"></p><br />
-    <p>　　　電話番号：<input type="text" name="number" size="30"></p><br />
-    <p>メールアドレス：<input type="text" name="mail" size="30"></p><br />
-
-    
     <input id="button" type="submit" value="登録"></center>
  
 <!-- Footer -->
