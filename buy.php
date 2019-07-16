@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <meta charset="utf-8" />
 
-<title>profile</title>
+<title>buy</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Colo Shop Template">
@@ -14,12 +13,13 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
-<link rel="stylesheet" type="text/css" href="styles/profile.css">
+<link rel="stylesheet" type="text/css" href="styles/buy.css">
 </head>
 
 <body>
 
 <div class="super_container">
+<!-- Header -->
 <header class="header trans_300">
 
 		<div class="top_nav">
@@ -68,86 +68,58 @@
 		</div>
 
 	</header>
-<div class="fs_menu_overlay"></div>
-	<div class="hamburger_menu">
-		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-		<div class="hamburger_menu_content text-right">
-			<ul class="menu_top_nav">
-				<li class="menu_item has-children">
-					<a href="#">
-						usd
-						<i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="menu_selection">
-						<li><a href="#">cad</a></li>
-						<li><a href="#">aud</a></li>
-						<li><a href="#">eur</a></li>
-						<li><a href="#">gbp</a></li>
-					</ul>
-				</li>
-				<li class="menu_item has-children">
-					<a href="#">
-						English
-						<i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="menu_selection">
-						<li><a href="#">French</a></li>
-						<li><a href="#">Italian</a></li>
-						<li><a href="#">German</a></li>
-						<li><a href="#">Spanish</a></li>
-					</ul>
-				</li>
-				<li class="menu_item has-children">
-					<a href="#">
-						My Account
-						<i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="menu_selection">
-						<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-						<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
-					</ul>
-				</li>
-				<li class="menu_item"><a href="#">home</a></li>
-				<li class="menu_item"><a href="#">shop</a></li>
-				<li class="menu_item"><a href="#">promotion</a></li>
-				<li class="menu_item"><a href="#">pages</a></li>
-				<li class="menu_item"><a href="#">blog</a></li>
-				<li class="menu_item"><a href="#">contact</a></li>
-			</ul>
-		</div>
-	</div>
-
-
-
-</div>
-</body>
 <br><br><br><br><br><br><br><br>
-<div style="float:right; margin-right:400px" class="jiko">
-  <b> 自己紹介：</b>
-  <form action="cgi-bin/formmail.cgi" method="post">
-  <br>
- <textarea name="kanso" rows="4" cols="40">ここに記入してください。</textarea><br>
- <br>
-</div>
+<title>購入画面</title>
+<caption><center>ご注文内容</center></caption>
+<body><center>
+<table border width="90%">
+<thead>
+	<tr align="center">
+		<th>商品名</th><th>個数</th><th>配送</th><th>単価</th></tr>
+</thead>
+<tbody>
+   <tr align="center" >
+	   <td><img src="./images/0000-s.jpg"><br><a href="#">会田祐介</a></td><td>1個</td><td>送料込み</td><td>500円</td></tr>
+</tbody>
+<tfoot>
+	<tr align="center"><td colspan="4" >合計:   </td></tr>
+</tfoot>
+</table>
+</center></body>
+<br>
+<body><center>
+<table size="3"width="90%"cellpadding="20px">
+<tr align="center"><th>支払方法</th><td>コンビニ払い<br><small>手数料 : ＋100円</small></td></tr>
+<tr align="center"><th>支払金額</th><td>500円</td></tr>
+</table>
+</center></body>
+<br>
 
-<div class="haiti">
+<caption><center>配送先</center></caption>
+<body><center>
+<table width="70%"cellpadding="20px">
+<thead>
+	<tr align="center">
+		<th>名前</th><th>郵便番号</th><th>住所</th></tr>
+</thead>
+<tbody>
+   <tr align="center" >
+	   <td>wiz 太郎</td><td>〒987-6543</td><td>福島県郡山方八町</td></tr>
+</tbody>
+</table>
+</center></body>
+<br>
 
- <p class="maru">
-   <img src="./images/0000-s.jpg" >
-	<br>
-   <div class="icon">
- <label  for="file_upload">アイコン変更
- <input type="file" id="file" onchange="$('#fake_text_box').val($(this).val())">
- </label>
-</div>
- <div><b> 名前：</b>
-	<input type="text" name="name" size="30" maxlength="20"></div>
- </div>
- <br>
- </p>
-</div>
+<p><center>配送オプション</p>
+<input type ="radio" name="haisou" value="a">通常配送
+<input type ="radio" name="haisou" value="a">お急ぎ便
+<input type ="radio" name="haisou" value="a">日付指定便
+</center>
+<form action="xxx.php" method="post" >
+<label>日付  <input type="date" name="date" style="display:note"></label>
+</form>
+<br><br>
 
-<p style="clear: both;"><center><input type="submit" value="完了"><center></p>
 
 <footer class="footer">
 		<div class="container">
@@ -156,7 +128,7 @@
 					<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
 
 						<ul class="footer_nav">
-							<li><a href="contact.html">お問い合わせ</a></li>
+<li><a href="contact.html">お問い合わせ</a></li>
 							<li><a href="privacy.html">プライバシーポリシー</a></li>
 							<li><a href="kiyaku.html">利用規約</a></li>
 						</ul>
@@ -181,4 +153,3 @@
 			</div>
 		</div>
 	</footer>
-	
