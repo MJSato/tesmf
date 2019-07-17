@@ -111,7 +111,7 @@ try{
 	$dbh->beginTransaction();
 	
 	//memberテーブルに本登録する
-	$statement = $dbh->prepare("INSERT INTO member (password) VALUES (:password_hash)");
+	$statement = $dbh->prepare("INSERT INTO USERS (login_pw) VALUES (:password_hash)");
 	//プレースホルダへ実際の値を設定する
 	$statement->bindValue(':password_hash', $password_hash, PDO::PARAM_STR);
 	$statement->execute();
@@ -153,13 +153,13 @@ try{
 
 ?>
 
- 
 <?php if (count($errors) === 0): ?>
+<center>
 <h3 class ="title">パスワード変更完了</h3>
 
 <p>変更完了いたしました。ログイン画面からどうぞ。</p>
 <p><a href="login.php">ログイン画面</a></p>
-
+</center>
 <?php elseif(count($errors) > 0): ?>
 
 <?php
