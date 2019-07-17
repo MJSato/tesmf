@@ -45,7 +45,7 @@ if(is_func_active()){
                 deljob();
                 //リダイレクトするページの計算
                 $re_page = $page;
-                $obj = new cadmin_master();
+                $obj = new cCONTACT();
                 $allcount = $obj->get_all_count(false);
                 $last_page = (int)($allcount / $limit);
                 if($allcount % $limit){
@@ -113,7 +113,7 @@ function readdata(){
     global $limit;
     global $rows;
     global $page;
-    $obj = new cadmin_master();
+    $obj = new cCONTACT();
     $from = ($page - 1) * $limit;
     $rows = $obj->get_all(false,$from,$limit);
 }
@@ -145,7 +145,7 @@ function assign_page_block(){
     global $limit;
     global $page;
     $retstr = '';
-    $obj = new cadmin_master();
+    $obj = new cCONTACT();
     $allcount = $obj->get_all_count(false);
     $ctl = new cpager($_SERVER['PHP_SELF'],$allcount,$limit);
     $smarty->assign('pager_arr',$ctl->get('page',$page));
