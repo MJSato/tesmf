@@ -12,6 +12,29 @@ $_SESSIONは多次元配列にする
              2017/5/31 Y.YAMANOI
 *********************************/
 session_start();
+if((!isset($_SESSION['tmY2019_adm']['admin_login'])) 
+    || (!isset($_SESSION['tmY2019_adm']['admin_master_id']))){
+    cutil::redirect_exit("adminlogin.php");
+}
+$admin = new cadmin_master();
+$row = $admin->get_tgt(false,$_SESSION['tmY2019_adm']['admin_login']);
+if($row === false || !isset($row['admin_master_id'])){
+    cutil::redirect_exit("adminlogin.php");
+}
+
+if($row['admin_master_id'] != $_SESSION['tmY2019_adm']['admin_master_id']){
+    cutil::redirect_exit("adminlogin.php");
+}
+if($row['admin_login'] != $_SESSION['tmY2019_adm']['admin_login']){
+    cutil::redirect_exit("adminadminlogin.php");
+}
+
+function echo_hello_admin_name(){
+    if(isset($_SESSION['tmY2019_adm']['admin_name'])){
+        echo $_SESSION['tmY2019_adm']['admin_name'];
+    }
+}
+
 if((!isset($_SESSION['ZTeam_adm']['admin_login'])) 
     || (!isset($_SESSION['ZTeam_adm']['admin_master_id']))){
     cutil::redirect_exit("login.php");
@@ -34,6 +57,5 @@ function echo_hello_admin_name(){
         echo $_SESSION['ZTeam_adm']['admin_name'];
     }
 }
-
 
 ?>
