@@ -91,29 +91,64 @@
 	<a href="Useredit.php">プロフィール変更</a></div>
 
     <center>
-    <button type="button" onclick="window.open('リンク先url')"style="background-color:#CCCCCC;width:600px;height:60px;"
+
+	<table>
+
+		<tr>
+			<th><button type="button" onclick="window.open('リンク先url')"style="background-color:#CCCCCC;width:600px;height:60px;"
     onmouseover="this.style.background='#000022'" 
-    onmouseout="this.style.background='#CCCCCC'"><font size="5">投稿一覧</font></button><br />
+    onmouseout="this.style.background='#CCCCCC'"><font size="5">投稿一覧</font></button>
+			</th>
+		</tr>
 
-    <button type="button" onclick="window.open('リンク先url')"style="background-color:最初の背景色;width:600px;height:60px;"
+		<tr>
+			<th><button type="button" onclick="window.open('リンク先url')"style="background-color:最初の背景色;width:600px;height:60px;"
     onmouseover="this.style.background='マウスが触れた時の背景色'" 
-    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">マイリスト</font></button><br />
+    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">マイリスト</font></button>
+			</th>
+		</tr>
 
-    <button type="button" onclick="window.open('リンク先url')"style="background-color:最初の背景色;width:600px;height:60px;"
+		<tr>
+			<th><button type="button" onclick="window.open('リンク先url')"style="background-color:最初の背景色;width:600px;height:60px;"
     onmouseover="this.style.background='マウスが触れた時の背景色'" 
-    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">お気に入りユーザー</font></button><br />
+    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">お気に入りユーザー</font> </button>
+			</th>
+		</tr>
 
-    <button type="button" onclick="window.open('リンク先url')"style="background-color:最初の背景色;width:600px;height:60px;"
+		<tr>
+			<th><button type="button" onclick="window.open('リンク先url')"style="background-color:最初の背景色;width:600px;height:60px;"
     onmouseover="this.style.background='マウスが触れた時の背景色'" 
-    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">閲覧履歴</font></button><br />
+    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">閲覧履歴</font></button>
+			</th>
+		</tr>
 
-    <button type="button" onclick="window.open('Useredit.php')"style="background-color:最初の背景色;width:600px;height:60px;"
+		<tr>
+			<th><button type="button" onclick="window.open('Useredit.php')"style="background-color:最初の背景色;width:600px;height:60px;"
     onmouseover="this.style.background='マウスが触れた時の背景色'" 
-    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">ユーザー情報編集</font></button><br />
+    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">ユーザー情報編集</font></button></th>
+		</tr>
 
-    <button type="button" onclick="window.open('リンク先url')"style="background-color:最初の背景色;width:600px;height:60px;"
+		<tr>
+    		<th> <button type="button" onclick="window.open('リンク先url')"style="background-color:最初の背景色;width:600px;height:60px;"
     onmouseover="this.style.background='マウスが触れた時の背景色'" 
-    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">評価一覧</font></button><br />
+    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">評価一覧</font></button></th>
+  		</tr>
+
+		
+
+	</table>
+
+    <br />
+
+    <br />
+
+   <br />
+
+    <br />
+
+    <br />
+
+   <br />
     </center>
 
 <!-- Footer -->

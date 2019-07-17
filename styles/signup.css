@@ -1,10 +1,8 @@
 table th{
   padding : 10px 10px;
-  border:solid 1px #aaaaaa;
   background-color: #94ccfaef; /*背景色*/
 }
 
 table td{
   padding : 10px 10px;
-  border:solid 1px #aaaaaa;
 }

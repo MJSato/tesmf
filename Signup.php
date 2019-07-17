@@ -156,7 +156,7 @@
 	}
 	?>
 
-    <input id="button" type="submit" value="登録"></center>
+    <input id="button" type="submit" value="変更"></center>
  
 <!-- Footer -->
 
