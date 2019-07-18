@@ -177,7 +177,7 @@ function regist(){
 
     $chenge = new cchange_ex();
     if($admin_master_id > 0){
-        $chenge->update('USERES',$dataarr,'user_id=' . $admin_master_id);
+        $chenge->update('USERS',$dataarr,'user_id=' . $admin_master_id);
         cutil::redirect_exit($_SERVER['PHP_SELF'] . '?aid=' . $admin_master_id);
     }
     else{
