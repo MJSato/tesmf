@@ -1,154 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>IMAGE CRAFT</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Colo Shop Template">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
-<link rel="stylesheet" type="text/css" href="styles/responsive.css">
-</head>
+<?php
+/*!
+@file login.php
+@brief  メインメニュー(ユーザ画面)
+@copyright Copyright (c) 2017 Yamanoi Yasushi.
+*/
 
-<body>
+require_once("inc_base.php");
+require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
+require_once("inc_smarty.php");
 
-<div class="super_container">
+$ERR_STR = "";
+$user_id = "";
+$user_name = "";
 
-	<!-- Header -->
+session_start();
+if(isset($_SESSION['tmY2019_adm']['err']) && $_SESSION['tmY2019_adm']['err'] != ""){
+    $ERR_STR = $_SESSION['tmY2019_adm']['err'];
+}
 
-	<header class="header trans_300">
+session_unset();
+session_destroy();
 
-		<div class="top_nav">
-		</div>
+if(isset($_POST['login_id']) && isset($_POST['login_pw'])){
+    if(chk_user_login(
+        strip_tags($_POST['login_id']),
+        strip_tags($_POST['login_pw']))){
+        session_start();
+        $_SESSION['tmY2019_adm']['login_id'] = strip_tags($_POST['login_id']);
+        $_SESSION['tmY2019_adm']['user_id'] = $user_id;
+        $_SESSION['tmY2019_adm']['user_name'] = $user_name;
+        cutil::redirect_exit("frontindex.php");
+    }
+}
 
-		<!-- Main Navigation -->
+function chk_user_login($login_id,$login_pw){
+    global $ERR_STR;
+    global $user_id;
+    global $user_name;
+    $user = new cUSERS();
+    $row = $user->get_tgt(false,$login_id);
+    if($row === false || !isset($row['user_id'])){
+        $ERR_STR .= "ログイン名が不定です。\n";
+        return false;
+    }
+    //暗号化によるパスワード認証
+    if(!cutil::pw_check($login_pw,$row['login_pw'])){
+        $ERR_STR .= "パスワードが違っています。\n";
+        return false;
+    }
+    $user_id = $row['user_id'];
+    $user_name = $row['user_name'];
+    return true;
+}
 
-		<div class="main_nav_container">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-right">
-						<div class="logo_container">
-							<a href="index.php"><img src="images/logo1.jpg" alt="" width="100" height="100"></a>
-						</div>
-						<nav class="navbar">
-							<ul class="navbar_menu">
-								<li><a href="categories.php">product</a></li>
-								<li><a href="#">post</a></li>
-								<li><a href="#">new post</a></li>
-								<li><a href="contact.php">contact</a></li>
-							</ul>
-
-							<ul class="navbar_user">
-								<li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-								
-								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
-										<li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
-							</li>
-								<li class="checkout">
-									<a href="#">
-										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-									</a>
-								</li>
-							</ul>
-
-							<div class="hamburger_container">
-								<i class="fa fa-bars" aria-hidden="true"></i>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!--共通-->
-	
-	<div class="newsletter">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-						
-					</div>
-				</div>
-			
-			</div>
-		</div>
-	</div>
-
-				<div align="right">
-					<table class="ta1"> 
-					<tr>
-					<th>ID</th>
-					<td><input type="text" name="id" size="30" class="ws"></td>
-					</tr>
-					<tr>
-					<th>Passward</th>
-					<td><input type="password" name="pass" size="30" class="ws"></td>
-					</tr>
-					</table>
-				</div>
-
-					<div align="center">
-					<a href="frontindex.php">
-							<input type="submit" class="button02" value="ログイン">
-					</a>
-				</div>
-
-					<div class="forget" align="right">
-					<p><a href="#">パスワードを忘れた方はこちら</a></p>
-					</div>
-
-					
-					
-					<footer class="footer">
-							<div class="container">
-								<div class="row">
-									<div class="col-lg-6">
-										<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-
-											<ul class="footer_nav">
-												<li><a href="contact.html">お問い合わせ</a></li>
-												<li><a href="privacy.html">プライバシーポリシー</a></li>
-												<li><a href="kiyaku.html">利用規約</a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="col-lg-6">
-										<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-											<ul>
-												<li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-												<li><a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-												<li><a href="https://instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="footer_nav_container">
-											<div class="cr">©2019 TeamF imagecraft</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</footer>
-</div>
+if(isset($_POST['login_id'])){
+$test =  (string)$_POST['login_id'];
+echo $test;
+}
 
 
+//Smartyを使用した表示(テンプレートファイルの指定)
+$smarty->display('admin/login.tmpl');
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="js/custom.js"></script>
-</body>
 
-</html>
+?>

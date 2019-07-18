@@ -452,7 +452,7 @@ class cUSERS extends crecord {
             $debug,         //デバッグ表示するかどうか
             "USERS.*", //取得するカラム
             "USERS",    //取得するテーブル
-            "USERS.user_id >= 0", //条件
+            "1", //条件
             "USERS.user_id asc", //並び替え
             "limit " . $from . "," . $limit     //抽出開始行と抽出数
         );
@@ -472,11 +472,7 @@ class cUSERS extends crecord {
     */
     //--------------------------------------------------------------------------------------
     public function get_tgt($debug,$id){
-        if(!cutil::is_number($id)
-        ||  $id < 1){
-            //falseを返す
-            return false;
-        }
+        
         //親クラスのselect()メンバ関数を呼ぶ
         $this->select(
             $debug,         //デバッグ表示するかどうか
@@ -484,6 +480,28 @@ class cUSERS extends crecord {
             "USERS",    //取得するテーブル
             "USERS.user_id >= 0"
         );
+        return $this->fetch_assoc();
+    }
+
+    //--------------------------------------------------------------------------------------
+    /*!
+    @brief  指定されたIDの配列を得る
+    @param[in]  $debug  デバッグ出力をするかどうか
+    @param[in]  $id     ID
+    @return 配列（1次元配列になる）空の場合はfalse
+    */
+    //--------------------------------------------------------------------------------------
+    public function get_tgt_id($debug,$id){
+        if(!cutil::is_number($id)
+            ||  $id < 1){
+            //falseを返す
+            return false;
+        }
+        //親クラスのselect()メンバ関数を呼ぶ
+        $this->select($debug,
+            "*",
+            "USERS",
+            "user_id = " . $id );
         return $this->fetch_assoc();
     }
    
