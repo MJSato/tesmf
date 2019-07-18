@@ -127,7 +127,7 @@ function readdata(){
 function deljob(){
     $chenge = new cchange_ex();
     if($_POST['param'] > 0){
-        $chenge->delete("admin_master","admin_master_id=" . $_POST['param']);
+        $chenge->delete("CONTACT","user_id=" . $_POST['param']);
 
     }
 }

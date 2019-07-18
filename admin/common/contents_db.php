@@ -1408,7 +1408,7 @@ class cCONTACT extends crecord {
             $debug,                 //デバッグ文字を出力するかどうか
             "count(*)",             //取得するカラム
             "CONTACT",            //取得するテーブル
-            "CONTACT.user_id <= 0" //条件
+            "CONTACT.user_id >= 0" //条件
         );
         if($row = $this->fetch_assoc()){
             //取得した個数を返す
@@ -1434,7 +1434,7 @@ class cCONTACT extends crecord {
             $debug,         //デバッグ表示するかどうか
             "CONTACT.*", //取得するカラム
             "CONTACT",    //取得するテーブル
-            "CONTACT.user_id <= 0", //条件
+            "CONTACT.user_id >= 0", //条件
             "CONTACT.user_id asc", //並び替え
             "limit " . $from . "," . $limit     //抽出開始行と抽出数
         );
@@ -1464,7 +1464,7 @@ class cCONTACT extends crecord {
             $debug,         //デバッグ表示するかどうか
             "CONTACT.*",          //取得するカラム
             "CONTACT",    //取得するテーブル
-            "CONTACT.user_id <= 0"
+            "CONTACT.user_id >= 0"
         );
         return $this->fetch_assoc();
     }
