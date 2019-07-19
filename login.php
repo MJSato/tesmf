@@ -55,7 +55,7 @@ function chk_user_login($login_id,$login_pw){
 
 
 //Smartyを使用した表示(テンプレートファイルの指定)
-$smarty->display('admin/login.tmpl');
+$smarty->display('login.tmpl');
 
 
 ?>
