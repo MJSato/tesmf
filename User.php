@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/user.css">
 <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </head>
 
@@ -24,49 +25,10 @@
 
 	<header class="header trans_300">
 
-		<div class="top_nav">
-		</div>
+	<?php include('Smarty/templates/user_header.tmpl'); ?>
 
-		<!-- Main Navigation -->
-
-		<div class="main_nav_container">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-right">
-						<div class="logo_container">
-							<a href="index.php"><img src="images/logo1.jpg" alt="" width="100" height="100"></a>
-						</div>
-						<nav class="navbar">
-							<ul class="navbar_menu">
-								<li><a href="categories.php">product</a></li>
-								<li><a href="#">post</a></li>
-								<li><a href="#">new post</a></li>
-								<li><a href="contact.php">contact</a></li>
-							</ul>
-
-							<ul class="navbar_user">
-								<li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-								
-								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
-										<li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
-										<li><a href="Signup.php"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
-							</li>
-								<li class="checkout">
-									<a href="#">
-										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-									</a>
-								</li>
-							</ul>
-
-							<div class="hamburger_container">
-								<i class="fa fa-bars" aria-hidden="true"></i>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</div>
 	</header>
+
 	<!--共通-->
 	
 	<div class="newsletter">
@@ -83,107 +45,62 @@
 	</div>
 
 
-    <div style="position:relative; top:20px; left: 1100px;">
-	<a href="Useredit.php"><img src="images/profile.png" width="50" height="50"></a></div>
+    <div class="animation-sample-1" style="position:relative; top:10px; left: 1000px;">
+	<a href="profile.php"><img src="images/profile.png" width="50" height="50"></a></div>
 
     
-    <div style="position:relative; top:22px; left: 1073px;">
-	<a href="Useredit.php">プロフィール変更</a></div>
+    <div style="position:relative; top:5px; left: 983px;">
+	<a href="profile.php">プロフィール変更</a></div>
+	<hr>
 
     <center>
 
-	<table>
+	<table style="border-collapse:separate; border-spacing:20px; border:1px">
 
 		<tr>
-			<th><button type="button" onclick="window.open('リンク先url')"style="background-color:#CCCCCC;width:600px;height:60px;"
-    onmouseover="this.style.background='#000022'" 
-    onmouseout="this.style.background='#CCCCCC'"><font size="5">投稿一覧</font></button>
+			<th><a href="#" class="btn-sticky"><font size="5">投稿一覧</font></a>
 			</th>
 		</tr>
 
 		<tr>
-			<th><button type="button" onclick="window.open('リンク先url')"style="background-color:最初の背景色;width:600px;height:60px;"
-    onmouseover="this.style.background='マウスが触れた時の背景色'" 
-    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">マイリスト</font></button>
+			<th><a href="#" class="btn-sticky"><font size="5">マイリスト</font></a>
 			</th>
 		</tr>
 
 		<tr>
-			<th><button type="button" onclick="window.open('リンク先url')"style="background-color:最初の背景色;width:600px;height:60px;"
-    onmouseover="this.style.background='マウスが触れた時の背景色'" 
-    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">お気に入りユーザー</font> </button>
+			<th><a href="#" class="btn-sticky"><font size="5">お気に入りユーザー</font></a>
 			</th>
 		</tr>
 
 		<tr>
-			<th><button type="button" onclick="window.open('リンク先url')"style="background-color:最初の背景色;width:600px;height:60px;"
-    onmouseover="this.style.background='マウスが触れた時の背景色'" 
-    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">閲覧履歴</font></button>
+    		<th><a href="#" class="btn-sticky"><font size="5">評価一覧</font></a>
 			</th>
 		</tr>
 
 		<tr>
-			<th><button type="button" onclick="window.open('Useredit.php')"style="background-color:最初の背景色;width:600px;height:60px;"
-    onmouseover="this.style.background='マウスが触れた時の背景色'" 
-    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">ユーザー情報編集</font></button></th>
+			<th><a href="Useredit.php" class="btn-sticky"><font size="5">ユーザー情報編集</font></a>
+			</th>
 		</tr>
 
 		<tr>
-    		<th> <button type="button" onclick="window.open('リンク先url')"style="background-color:最初の背景色;width:600px;height:60px;"
-    onmouseover="this.style.background='マウスが触れた時の背景色'" 
-    onmouseout="this.style.background='マウスが離れた時の背景色'"><font size="5">評価一覧</font></button></th>
-  		</tr>
+			<th><a href="#" class="btn-sticky"><font size="5">閲覧履歴</font></a>
+			</th>
+		</tr>
+		
 
 		
 
 	</table>
 
-    <br />
-
-    <br />
-
-   <br />
-
-    <br />
-
-    <br />
-
-   <br />
+    
     </center>
 
 <!-- Footer -->
 
 <footer class="footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
 
-					<ul class="footer_nav">
-						<li><a href="contact.html">お問い合わせ</a></li>
-						<li><a href="privacy.html">プライバシーポリシー</a></li>
-						<li><a href="kiyaku.html">利用規約</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-					<ul>
-						<li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li><a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li><a href="https://instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="footer_nav_container">
-					<div class="cr">©2019 TeamF imagecraft</div>
-					</div>
-				</div>
-			</div>
-		</div>
+<?php include('Smarty/templates/user_fooder.tmpl'); ?>
+
 </footer>
 </div>
 
