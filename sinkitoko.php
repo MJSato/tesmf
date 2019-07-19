@@ -15,7 +15,10 @@ img{
 </style>
 </head>
 <body>
-
+ <!-- header-->
+ <header class="header trans_300">
+{include file='./user_header.tmpl'}
+    </header>
 
 <script type="text/javascript">
 $(function () {
@@ -113,10 +116,7 @@ $(function () {
     <input type="submit" name="send" value="送信">
 </form>
 
-    <!-- header-->
-<header class="header trans_300">
-{include file='./user_header.tmpl'}
-    </header>
+   
     <!-- Footer -->
 
 	<footer class="footer">
