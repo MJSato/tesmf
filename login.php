@@ -39,7 +39,7 @@ function chk_user_login($login_id,$login_pw){
     global $user_name;
     $user = new cUSERS();
     $row = $user->get_tgt(false,$login_id);
-    if($row === false || !isset($row['user_id'])){
+    if($row === false || !isset($row['login_id'])){
         $ERR_STR .= "ログイン名が不定です。\n";
         return false;
     }
@@ -51,11 +51,6 @@ function chk_user_login($login_id,$login_pw){
     $user_id = $row['user_id'];
     $user_name = $row['user_name'];
     return true;
-}
-
-if(isset($_POST['login_id'])){
-$test =  (string)$_POST['login_id'];
-echo $test;
 }
 
 

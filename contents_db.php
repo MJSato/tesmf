@@ -472,17 +472,13 @@ class cUSERS extends crecord {
     */
     //--------------------------------------------------------------------------------------
     public function get_tgt($debug,$id){
-        if(!cutil::is_number($id)
-        ||  $id < 1){
-            //falseを返す
-            return false;
-        }
+        
         //親クラスのselect()メンバ関数を呼ぶ
         $this->select(
             $debug,         //デバッグ表示するかどうか
-            "USERS.*",          //取得するカラム
+            "*",          //取得するカラム
             "USERS",    //取得するテーブル
-            "USERS.user_id >= 0"
+            "login_id like '{$id}'"
         );
         return $this->fetch_assoc();
     }
