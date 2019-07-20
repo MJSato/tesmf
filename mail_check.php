@@ -26,7 +26,7 @@
 
 	<header class="header trans_300">
 
-	<?php include('Smarty/templates/user_header.tmpl'); ?>
+	<?php include('admin/Smarty/templates/user_header.tmpl'); ?>
 
 	</header>
 
@@ -176,7 +176,7 @@ foreach($errors as $value){
 
 <footer class="footer">
 
-	<?php include('Smarty/templates/user_fooder.tmpl'); ?>
+	<?php include('admin/Smarty/templates/user_fooder.tmpl'); ?>
 
 </footer>
 
