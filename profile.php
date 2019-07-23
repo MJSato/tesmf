@@ -17,11 +17,27 @@
 <link rel="stylesheet" type="text/css" href="styles/profile.css">
 </head>
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+$(function() {
+var menu = $('.menu');
+$('li', menu)
+.mouseover(function(e) {
+$('ul', this).stop().slideDown('fast');
+})
+.mouseout(function(e) {
+$('ul', this).stop().slideUp('fast');
+});
+});
+</script>
 <body>
 
 <div class="super_container">
 <header class="header trans_300">
 
+<<<<<<< HEAD:Lamp2019F-master/profile.php
 		<div class="top_nav">
 		</div>
 
@@ -62,12 +78,51 @@
 								<i class="fa fa-bars" aria-hidden="true"></i>
 							</div>
 						</nav>
-					</div>
+=======
+<div class="top_nav">
+</div>
+
+<!-- Main Navigation -->
+
+<div class="main_nav_container">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-right">
+				<div class="logo_container">
+					<a href="index.php"><img src="images/logo1.jpg" alt="" width="100" height="100"></a>
 				</div>
+				<nav class="navbar">
+					<ul class="navbar_menu">
+						<li><a href="categories.php">product</a></li>
+						<li><a href="#">post</a></li>
+						<li><a href="#">new post</a></li>
+						<li><a href="contact.php">contact</a></li>
+					</ul>
+
+					<ul class="navbar_user">
+						<li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
+						
+						<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
+								<li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+					</li>
+						<li class="checkout">
+							<a href="#">
+								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+							</a>
+						</li>
+					</ul>
+
+					<div class="hamburger_container">
+						<i class="fa fa-bars" aria-hidden="true"></i>
+>>>>>>> 13ca46a6ae704bac4a54497b00c1b563a7b2e02f:profile.php
+					</div>
+				</nav>
 			</div>
 		</div>
-
-	</header>
+	</div>
+</div>
+</header>
 <div class="fs_menu_overlay"></div>
 	<div class="hamburger_menu">
 		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
@@ -122,7 +177,8 @@
 </div>
 </body>
 <br><br><br><br><br><br><br><br>
-<div style="float:right; margin-right:400px" class="jiko">
+
+<div style="float:right;" class="jiko">
   <b> 自己紹介：</b>
   <form action="cgi-bin/formmail.cgi" method="post">
   <br>
@@ -133,7 +189,7 @@
 <div class="haiti">
 
  <p class="maru">
-   <img src="./images/0000-s.jpg" >
+   <img  src="./images/0000-s.jpg" >
 	<br>
    <div class="icon">
  <label  for="file_upload">アイコン変更
@@ -144,10 +200,12 @@
 	<input type="text" name="name" size="30" maxlength="20"></div>
  </div>
  <br>
+
  </p>
 </div>
 
-<p style="clear: both;"><center><input type="submit" value="完了"><center></p>
+<br><br><br>
+
 
 <footer class="footer">
 		<div class="container">
