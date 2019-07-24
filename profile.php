@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <meta charset="utf-8" />
-
 <title>profile</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,227 +15,42 @@
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 <link rel="stylesheet" type="text/css" href="styles/profile.css">
 </head>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<script>
-$(function() {
-var menu = $('.menu');
-$('li', menu)
-.mouseover(function(e) {
-$('ul', this).stop().slideDown('fast');
-})
-.mouseout(function(e) {
-$('ul', this).stop().slideUp('fast');
-});
-});
-</script>
 <body>
-
-<div class="super_container">
 <header class="header trans_300">
-
-<<<<<<< HEAD:Lamp2019F-master/profile.php
-		<div class="top_nav">
-		</div>
-
-		<!-- Main Navigation -->
-
-		<div class="main_nav_container">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-right">
-						<div class="logo_container">
-							<a href="index.html"><img src="images/logo1.jpg" alt="" width="100" height="100"></a>
-						</div>
-						<nav class="navbar">
-							<ul class="navbar_menu">
-								<li><a href="#">product</a></li>
-								<li><a href="#">post</a></li>
-								<li><a href="#">new post</a></li>
-
-								<li><a href="contact.html">contact</a></li>
-							</ul>
-
-							<ul class="navbar_user">
-								<li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
-								<ul class="menu__second-level">
-										<li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i>login</a></li>
-										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>sign up</a></li>
-									</ul>
-							</li>
-								<li class="checkout">
-									<a href="#">
-										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-									</a>
-								</li>
-							</ul>
-
-							<div class="hamburger_container">
-								<i class="fa fa-bars" aria-hidden="true"></i>
-							</div>
-						</nav>
-=======
-<div class="top_nav">
-</div>
-
-<!-- Main Navigation -->
-
-<div class="main_nav_container">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 text-right">
-				<div class="logo_container">
-					<a href="index.php"><img src="images/logo1.jpg" alt="" width="100" height="100"></a>
-				</div>
-				<nav class="navbar">
-					<ul class="navbar_menu">
-						<li><a href="categories.php">product</a></li>
-						<li><a href="#">post</a></li>
-						<li><a href="#">new post</a></li>
-						<li><a href="contact.php">contact</a></li>
-					</ul>
-
-					<ul class="navbar_user">
-						<li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-						
-						<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
-								<li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
-					</li>
-						<li class="checkout">
-							<a href="#">
-								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-							</a>
-						</li>
-					</ul>
-
-					<div class="hamburger_container">
-						<i class="fa fa-bars" aria-hidden="true"></i>
->>>>>>> 13ca46a6ae704bac4a54497b00c1b563a7b2e02f:profile.php
-					</div>
-				</nav>
-			</div>
-		</div>
-	</div>
-</div>
+<?php include ('./admin/Smarty/templates/user_header.tmpl')?>
 </header>
-<div class="fs_menu_overlay"></div>
-	<div class="hamburger_menu">
-		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-		<div class="hamburger_menu_content text-right">
-			<ul class="menu_top_nav">
-				<li class="menu_item has-children">
-					<a href="#">
-						usd
-						<i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="menu_selection">
-						<li><a href="#">cad</a></li>
-						<li><a href="#">aud</a></li>
-						<li><a href="#">eur</a></li>
-						<li><a href="#">gbp</a></li>
-					</ul>
-				</li>
-				<li class="menu_item has-children">
-					<a href="#">
-						English
-						<i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="menu_selection">
-						<li><a href="#">French</a></li>
-						<li><a href="#">Italian</a></li>
-						<li><a href="#">German</a></li>
-						<li><a href="#">Spanish</a></li>
-					</ul>
-				</li>
-				<li class="menu_item has-children">
-					<a href="#">
-						My Account
-						<i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="menu_selection">
-						<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-						<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
-					</ul>
-				</li>
-				<li class="menu_item"><a href="#">home</a></li>
-				<li class="menu_item"><a href="#">shop</a></li>
-				<li class="menu_item"><a href="#">promotion</a></li>
-				<li class="menu_item"><a href="#">pages</a></li>
-				<li class="menu_item"><a href="#">blog</a></li>
-				<li class="menu_item"><a href="#">contact</a></li>
-			</ul>
-		</div>
-	</div>
 
-
-
-</div>
 </body>
-<br><br><br><br><br><br><br><br>
-
-<div style="float:right;" class="jiko">
-  <b> 自己紹介：</b>
-  <form action="cgi-bin/formmail.cgi" method="post">
-  <br>
- <textarea name="kanso" rows="4" cols="40">ここに記入してください。</textarea><br>
- <br>
-</div>
-
-<div class="haiti">
-
+<body><center>
+<div style=" margin-top:300px;">
  <p class="maru">
-   <img  src="./images/0000-s.jpg" >
-	<br>
+   <img src="./images/icon.jpeg">
+	 </p><br>
    <div class="icon">
- <label  for="file_upload">アイコン変更
- <input type="file" id="file" onchange="$('#fake_text_box').val($(this).val())">
- </label>
-</div>
- <div><b> 名前：</b>
-	<input type="text" name="name" size="30" maxlength="20"></div>
- </div>
+    <label  for="file_upload">アイコン変更
+    <input type="file" id="file" onchange="$('#fake_text_box').val($(this).val())">
+     </label>
+   </div>
+     <div><b> 名前：</b>
+	     <input type="text" name="name" size="30" maxlength="20"></div>
+      </div>
  <br>
+ <div>
+  <label for="jiko"> 自己紹介：</label><br>
+ <textarea id="jiko" rows="5" cols="60" name="jiko" maxlength="200" placeholder="こちらに記入してください。"></textarea>
+ </div>
+ </center></body>
 
- </p>
-</div>
 
-<br><br><br>
+
+<br><br>
+<p><center><input type="submit" value="完了"><center></p>
+
+
+
 
 
 <footer class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-
-						<ul class="footer_nav">
-							<li><a href="contact.html">お問い合わせ</a></li>
-							<li><a href="privacy.html">プライバシーポリシー</a></li>
-							<li><a href="kiyaku.html">利用規約</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-						<ul>
-							<li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							<li><a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							<li><a href="https://instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer_nav_container">
-						<div class="cr">©2019 TeamF imagecraft</div>
-					</div>
-				</div>
-			</div>
-		</div>
+<?php include ('./admin/Smarty/templates/user_fooder.tmpl')?>
 	</footer>
 	
